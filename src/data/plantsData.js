@@ -1,3 +1,9 @@
+import snakeImg from '../assets/snake_alt.jpg';
+import aloeImg from '../assets/aloe.jpg';
+import peaceLilyImg from '../assets/peace_lily_real.jpg';
+import herbImg from '../assets/pl2.jpg';
+import monsteraImg from '../assets/monstera.jpg';
+
 export const CATEGORIES = [
   {
     id: 'indoor',
@@ -72,7 +78,7 @@ export const PLANTS = [
     originalPrice: 62,
     rating: 4.9,
     reviewsCount: 142,
-    image: 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=800&q=80',
+    image: monsteraImg,
     badge: 'Best Seller',
     sunlight: 'Bright Indirect Light',
     watering: 'Every 1-2 weeks',
@@ -116,7 +122,7 @@ export const PLANTS = [
     originalPrice: 42,
     rating: 5.0,
     reviewsCount: 215,
-    image: 'https://images.unsplash.com/photo-1593482892290-f54927ae1bf6?auto=format&fit=crop&w=800&q=80',
+    image: snakeImg,
     badge: 'Indestructible',
     sunlight: 'Any light (Low to High)',
     watering: 'Every 2-3 weeks',
@@ -138,7 +144,7 @@ export const PLANTS = [
     originalPrice: 30,
     rating: 4.9,
     reviewsCount: 168,
-    image: 'https://images.unsplash.com/photo-1567689578652-32a2a096350f?auto=format&fit=crop&w=800&q=80',
+    image: aloeImg,
     badge: 'Healing Herb',
     sunlight: 'Bright Direct / Indirect',
     watering: 'Every 3 weeks',
@@ -160,7 +166,7 @@ export const PLANTS = [
     originalPrice: 48,
     rating: 4.7,
     reviewsCount: 112,
-    image: 'https://images.unsplash.com/photo-1593691509543-c55fb32e7355?auto=format&fit=crop&w=800&q=80',
+    image: peaceLilyImg,
     badge: 'Flowering',
     sunlight: 'Low to Medium Indirect',
     watering: 'Weekly (droops when thirsty)',
@@ -248,7 +254,7 @@ export const PLANTS = [
     originalPrice: 28,
     rating: 5.0,
     reviewsCount: 92,
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80',
+    image: herbImg,
     badge: 'Ayurvedic',
     sunlight: 'Direct Sunlight',
     watering: 'Regular, moist soil',

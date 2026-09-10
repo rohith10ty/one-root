@@ -6,10 +6,7 @@ import {
   Heart, 
   ShoppingBag, 
   Menu, 
-  X, 
-  Phone, 
-  Sun,
-  ShieldCheck
+  X 
 } from 'lucide-react';
 
 export default function Navbar() {
@@ -48,41 +45,27 @@ export default function Navbar() {
     setMobileMenuOpen(false);
     if (href === '#contact') {
       const el = document.getElementById('contact');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-      else setIsContactOpen(true);
+      if (el) {
+        if (window.lenis) window.lenis.scrollTo(el);
+        else el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        setIsContactOpen(true);
+      }
       return;
     }
     const el = document.querySelector(href);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      if (window.lenis) window.lenis.scrollTo(el);
+      else el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
     <>
-      {/* Top micro-announcement banner (001524 bg, D6CC99 & FDE5D4 text) */}
-      <div className="bg-[#001524] text-[#FDE5D4] text-[11px] py-1.5 px-4 border-b border-[#445D48]/40 relative z-40">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-1.5 text-[10.5px] sm:text-[11px]">
-            <span className="flex h-1.5 w-1.5 rounded-full bg-[#D6CC99] animate-pulse"></span>
-            <span>🌿 <strong>Spring Code:</strong> <code className="bg-[#445D48] text-[#FDE5D4] px-1.5 py-0.5 rounded font-mono text-[10px] font-bold">PLANTLOVE15</code> for 15% OFF</span>
-          </div>
-          <div className="hidden md:flex items-center gap-5 text-[10.5px] text-[#D6CC99]">
-            <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3 text-[#D6CC99]" /> 30-Day Guarantee</span>
-            <span className="flex items-center gap-1"><Sun className="w-3 h-3 text-[#D6CC99]" /> 100% Organic</span>
-            <button 
-              onClick={() => setIsContactOpen(true)}
-              className="flex items-center gap-1 text-[#FDE5D4] hover:text-[#D6CC99] underline underline-offset-2 transition-colors cursor-pointer"
-            >
-              <Phone className="w-2.5 h-2.5" /> Support
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Main sticky navigation (FDE5D4 bg with D6CC99 border & 001524 text) */}
+      {/* Main navigation revealed after hero effect */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
+        style={{ transform: 'translateY(-100%)', opacity: 0, pointerEvents: 'none' }}
+        className={`site-navbar fixed top-0 left-0 right-0 z-50 transition-colors duration-300 will-change-[transform,opacity] ${
           isScrolled
             ? 'bg-[#FDE5D4]/95 backdrop-blur-xl shadow-sm border-b border-[#D6CC99] py-2.5'
             : 'bg-[#FDE5D4]/90 backdrop-blur-md border-b border-[#D6CC99]/60 py-3'
@@ -95,7 +78,8 @@ export default function Navbar() {
             href="#hero"
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              if (window.lenis) window.lenis.scrollTo(0);
+              else window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             className="flex items-center gap-2 group cursor-pointer"
           >
@@ -103,10 +87,10 @@ export default function Navbar() {
               <Sprout className="w-4.5 h-4.5 text-[#D6CC99]" />
             </div>
             <div>
-              <span className="text-base sm:text-lg font-serif font-bold text-[#001524] tracking-tight flex items-center gap-1">
-                One<span className="text-[#445D48] font-sans font-light">Root</span>
+              <span className="text-base sm:text-lg font-sans font-bold text-[#001524] tracking-tight flex items-center gap-1">
+                One<span className="text-[#445D48] font-sans font-normal">Root</span>
               </span>
-              <span className="hidden sm:block text-[9px] uppercase font-bold tracking-widest text-[#445D48] -mt-1">
+              <span className="hidden sm:block text-[9.5px] uppercase font-bold tracking-widest text-[#445D48] -mt-0.5">
                 Botanical Sanctuary
               </span>
             </div>
@@ -188,7 +172,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-[88px] bg-[#FDE5D4]/98 backdrop-blur-2xl border-b border-[#D6CC99] shadow-xl p-5 transition-all z-50 max-h-[85vh] overflow-y-auto">
+          <div className="lg:hidden fixed inset-x-0 top-full bg-[#FDE5D4]/98 backdrop-blur-2xl border-b border-[#D6CC99] shadow-xl p-5 transition-all z-50 max-h-[85vh] overflow-y-auto">
             <div className="flex flex-col gap-3">
               <div className="relative">
                 <Search className="w-3.5 h-3.5 text-[#445D48] absolute left-3 top-3" />

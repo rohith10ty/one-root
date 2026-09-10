@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Categories from './components/Categories';
 import PlantCatalog from './components/PlantCatalog';
-import DisintegrateDemo from './components/DisintegrateDemo';
 import AboutSection from './components/AboutSection';
 import WhyChooseUs from './components/WhyChooseUs';
 import CareTips from './components/CareTips';
@@ -18,8 +17,10 @@ import SearchModal from './components/SearchModal';
 import PlantModal from './components/PlantModal';
 import CheckoutModal from './components/CheckoutModal';
 import ToastContainer from './components/ToastContainer';
+import { useLenis } from './hooks/useLenis';
 
 function NurseryApp() {
+  useLenis();
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   return (
@@ -38,10 +39,7 @@ function NurseryApp() {
         {/* 3. Featured Plants Grid with Search, Sort, Badges */}
         <PlantCatalog />
 
-        {/* 4. Interactive Botanical Pruner & Disintegrate Studio */}
-        <DisintegrateDemo />
-
-        {/* 5. About Nursery & Permaculture Philosophy */}
+        {/* 4. About Nursery & Permaculture Philosophy */}
         <AboutSection />
 
         {/* 6. Why Choose Us (5 Benefit Cards & Eco Packaging) */}

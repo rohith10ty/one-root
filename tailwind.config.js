@@ -92,8 +92,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
-        serif: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['Outfit', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        serif: ['Outfit', 'Playfair Display', 'Georgia', 'serif'],
       },
       boxShadow: {
         'botanical': '0 15px 35px -10px rgba(0, 21, 36, 0.12)',

@@ -2,6 +2,66 @@ import React, { useState, useEffect } from 'react';
 import { REVIEWS } from '../data/plantsData';
 import { Star, Quote, ChevronLeft, ChevronRight, CheckCircle2, Heart } from 'lucide-react';
 
+function WireArtAvatar({ index, isCurrent }) {
+  const wireArts = [
+    // Wire Art 1: Flowing botanical wire portrait
+    (
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full p-1">
+        <path d="M12 28C13 25 14 23 16 23C18 23 19 25 20 28" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M18 7C14 7 12 10 12 14C12 17 14 20 18 20C22 20 24 17 24 14C24 10 22 7 18 7Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M18 10V14L20 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15 12H15.01M21 12H21.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M16 17Q18 18.5 20 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M22 8C25 9 27 12 26 15C25 18 23 17 21 16" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      </svg>
+    ),
+    // Wire Art 2: Geometric continuous-line silhouette with botanical motif
+    (
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full p-1">
+        <circle cx="18" cy="18" r="14" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" opacity="0.4" />
+        <path d="M18 6C15 6 13 9 13 13C13 18 15 21 18 21C21 21 23 18 23 13C23 9 21 6 18 6Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M11 29C13 25 15 24 18 24C21 24 23 25 25 29" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M18 12C16.5 13 16.5 15 18 16C19.5 15 19.5 13 18 12Z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+        <path d="M18 6V3M15 4L18 3L21 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      </svg>
+    ),
+    // Wire Art 3: Minimalist continuous-line contour face
+    (
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full p-1">
+        <path d="M13 28C14 24 16 23 18 23C20 23 22 24 23 28M14 11C14 11 16 8 19 8C22 8 23 11 23 14C23 17 21 19 18 20C16 19 14 17 14 15V13C14 13 17 13 19 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="20" cy="13" r="1" fill="currentColor" />
+        <path d="M22 10C24 11 25 13 24 16" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+        <path d="M13 16C12 18 11 21 11 25" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.6" />
+      </svg>
+    ),
+    // Wire Art 4: Elegant single wire sculpture silhouette
+    (
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full p-1">
+        <path d="M10 28C11 24 14 23 18 23C22 23 25 24 26 28" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M15 15C15 15 16 18 18 18C20 18 21 15 21 15" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+        <path d="M18 8C14.5 8 13 10.5 13 14C13 17.5 15 21 18 21C21 21 23 17.5 23 14C23 10.5 21.5 8 18 8Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M16 12L17 12M19 12L20 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M18 13V15" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      </svg>
+    )
+  ];
+
+  const art = wireArts[index % wireArts.length];
+
+  return (
+    <div
+      className={`w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center transition-all ${
+        isCurrent
+          ? 'bg-[#445D48] text-[#D6CC99] ring-2 ring-[#D6CC99]/70 shadow-sm'
+          : 'bg-[#001524] text-[#D6CC99] ring-1 ring-[#445D48]/50 shadow-xs'
+      }`}
+      aria-hidden="true"
+    >
+      {art}
+    </div>
+  );
+}
+
 export default function Reviews() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -126,11 +186,7 @@ export default function Reviews() {
                     isCurrent ? 'border-white/15' : 'border-[#D6CC99]/30'
                   }`}
                 >
-                  <img
-                    src={review.avatar}
-                    alt={review.name}
-                    className="w-8 h-8 rounded-full object-cover ring-1 ring-[#D6CC99]/40"
-                  />
+                  <WireArtAvatar index={idx} isCurrent={isCurrent} />
                   <div>
                     <div className="flex items-center gap-1">
                       <h4

@@ -1,6 +1,6 @@
-# 🌿 One Root | Modern Nature Nursery & Living Botanicals
+# 🌿 One Root | Modern Nature Nursery & Botanical Sanctuary
 
-A modern, responsive, and visually stunning Nature Nursery & Houseplant Website built with **React**, **Vite**, **Tailwind CSS**, **Lucide Icons**, and custom **HTML5 Canvas Particle Animations** (featuring **Real Botanical Falling Leaves** and a signature **Botanical Particle Disintegration Effect**).
+A modern, responsive, and visually stunning Botanical Nursery & Houseplant Website built with **React 19**, **Vite**, **Tailwind CSS**, **GSAP ScrollTrigger**, **Lenis Smooth Scroll**, **Lucide Icons**, and custom **64-layer HTML5 Canvas Particle Disintegration & Materialization**.
 
 - **GitHub Repository**: [https://github.com/rohith10ty/one-root](https://github.com/rohith10ty/one-root)
 
@@ -8,18 +8,25 @@ A modern, responsive, and visually stunning Nature Nursery & Houseplant Website 
 
 ## ✨ Features & Architecture
 
-### 1. 🌿 Sticky Glassmorphic Navbar & Announcement Bar
-- **Announcement Banner**: Real-time ticker with spring promo code (`PLANTLOVE15`), 30-day survival guarantee, and direct greenhouse support hotline.
+### 1. 🎬 Cinematic Sanctuary Hero & Scroll Experience
+- **Preloader Screen**: Editorial opening with `LIVING BOTANICAL SANCTUARY`, `CURATED FLORA COLLECTION`, `100% ORGANICALLY RAISED`, and `ROOTED SINCE 2014`.
+- **Morphing Typography**: As the user scrolls, "ONE ROOT" transforms:
+  - "O" seamlessly transitions into "1".
+  - Surrounding letters dissolve away.
+  - "1" and "R" glide together into the center to form the iconic **1R monogram**.
+- **Split-Curtain Reveal**: The preloader splits into top and bottom curtains, smoothly sliding open to reveal the living botanical greenhouse sanctuary and sticky glassmorphic navbar.
+- **64-Layer Sand Disintegration & Materialization Engine**:
+  - The Bonsai tree card dynamically materializes from swirling sand dust particles as the beside content card slides in from the left.
+  - Holds crisp and stable for 2 full scrolls to ensure readability.
+  - Disintegrates into blowing fine sand particles drifting right upon exit.
+- **Buttery-Smooth Navigation (Lenis)**: Integrated with **Lenis Smooth Scroll** and synchronized with GSAP's ticker and ScrollTrigger updates for luxurious scroll physics on desktop and mobile.
+
+### 2. 🌿 Sticky Glassmorphic Navbar
+- Hidden on initial preloader mount and slides in gracefully upon sanctuary reveal.
 - **Desktop & Mobile Navigation**: Smooth scroll links to Home, Categories, Plants, About Us, Why Us, Care Tips, Reviews, and Contact.
 - **Instant Search Modal**: Global `Ctrl+K` / `⌘K` keyboard shortcut with live autocomplete for plants, botanical names, and traits.
-- **Wishlist & Cart Badges**: Live item count badges with animated transitions.
+- **Wishlist & Cart Badges**: Live item count badges with animated state updates.
 - **Responsive Mobile Drawer**: Fluid animated hamburger menu.
-
-### 2. 🌱 Hero Sanctuary & Ambient Floating Leaf Canvas
-- Nature-inspired typography with dynamic gradient text and badge highlights.
-- **Interactive Floating Leaves & Spores Canvas**: Ambient HTML5 canvas rendering floating leaves that respond with organic drift physics.
-- **Floating 3D-Tilt Stat Badges**: Carbon-negative guarantee and 30-day survival replacement guarantee.
-- Dual call-to-action buttons ("Shop All Plants" & "Explore Care Guides").
 
 ### 3. 🍃 6 Curated Botanical Categories
 - High-resolution cards with image zoom on hover and custom botanical gradients:
@@ -36,9 +43,13 @@ A modern, responsive, and visually stunning Nature Nursery & Houseplant Website 
 - **Category Filter Pills**: Quick toggle across all categories.
 - **Pet-Friendly Filter Toggle**: One-click filter for 100% non-toxic plants.
 - **Multi-Factor Sorting**: Sort by Featured, Price (Low to High), Price (High to Low), or Highest Rated.
+- **Authentic Botanical Photography**: Locally bundled, genuine photography for every specimen:
+  - **Monstera Deliciosa** (*Monstera deliciosa Liebm.*)
+  - **Snake Plant Laurentii** (*Sansevieria trifasciata*)
+  - **Medicinal Aloe Vera** (*Aloe barbadensis Miller*)
+  - **Peace Lily Sensation** (*Spathiphyllum floribundum*)
+  - **Fiddle Leaf Fig** (*Ficus lyrata*)
 - **Interactive Plant Cards**:
-  - Image hover scale with smooth cubic-bezier transitions.
-  - Category badges (Best Seller, Healing Herb, Rare Exotic, Indestructible, etc.).
   - Direct Wishlist toggle with animated heart feedback.
   - Direct "Add to Cart" button with instant quantity tracking.
   - Light & watering micro-badges.
@@ -50,13 +61,10 @@ A modern, responsive, and visually stunning Nature Nursery & Houseplant Website 
 - Care metrics dashboard: Sunlight, Watering, Soil composition, and Care Difficulty.
 - Quantity selector and direct checkout flow.
 
-### 6. ✨ Signature "Disintegration Effect" Studio
-- **The Botanical Pruner & Disintegration Studio**: An interactive showcase demonstrating natural biodegradation.
-- Powered by custom HTML5 Canvas particle dispersal physics (`src/utils/disintegrate.js`):
-  - Slices elements into hundreds of organic leaf fragments, dust, and golden pollen particles.
-  - Features wind turbulence, gravity decay, and angular rotation.
-  - Includes a "Regrow All" interactive loop.
-- **Integrated into Cart & Wishlist**: Removing any plant from the cart or wishlist activates the same real-time particle disintegration effect before removing the item!
+### 6. 🎨 Wire Art Testimonials Carousel
+- Minimalist **continuous line wire art portraits** (SVG) for reviewer avatars instead of conventional photo portraits.
+- Real testimonials from verified plant parents with ratings and adopted botanical species.
+- Autoplay carousel with smooth transitions and pause-on-hover.
 
 ### 7. 🏡 About Nursery & Sustainability Heritage
 - Permaculture story and commitment to zero synthetic sprays.
@@ -70,32 +78,26 @@ A modern, responsive, and visually stunning Nature Nursery & Houseplant Website 
   - 100% Eco-Friendly & Zero-Plastic Packaging
   - Lifetime Plant Care Support
   - 100% Secure Checkout
-- Feature breakdown on 100% compostable coconut coir and cornstarch packaging.
 
 ### 9. 🩺 Plant Care Guides & Interactive "Doctor Plant" Clinic
 - 4 comprehensive care articles covering **Watering Techniques**, **Sunlight Levels**, **Soil Drainage Formulas**, and **Seasonal Pruning**.
 - **Interactive Plant Symptom Checker**: Select real-world plant symptoms (Yellowing lower leaves, Crispy brown tips, Limp drooping stems, Leggy pale stems) for instant botanical diagnosis and recovery prescriptions.
 
-### 10. 💬 Verified Customer Reviews Carousel
-- Real testimonials from verified plant parents with photos, star ratings, and specific plants adopted.
-- Autoplay carousel with pause on hover and previous/next slide navigation.
-
-### 11. 💌 Newsletter & 15% Discount Engine
+### 10. 💌 Newsletter & 15% Discount Engine
 - Nature-themed card with real-time regex email validation.
 - Auto-applies promo code `PLANTLOVE15` to the shopping cart upon subscribing.
 - Triggers celebratory botanical leaf confetti animation.
 
-### 12. 📞 Greenhouse Visit & Working Contact Form
+### 11. 📞 Greenhouse Visit & Working Contact Form
 - Physical address, visiting hours, direct phone, and botanist email.
 - Real-time validated contact form with subject selectors and instant feedback.
 
-### 13. 🛒 Slide-Out Cart & Wishlist Drawers + Checkout Simulator
+### 12. 🛒 Slide-Out Cart & Wishlist Drawers + Checkout Simulator
 - **Slide-out Cart**:
   - Live quantity adjustment stepper (`-` / `+`).
   - Free delivery progress bar ($75 threshold).
   - Promo code field with support for `PLANTLOVE15` (15% OFF) and `EARTH20` (20% OFF).
-  - Item removal with **Particle Disintegration Effect**.
-- **Wishlist Drawer**: Saved plants with one-click "Move to Cart" or disintegrate removal.
+- **Wishlist Drawer**: Saved plants with one-click "Move to Cart".
 - **Simulated 3-Step Checkout Modal**:
   - Step 1: Eco-Shipping address with special delivery instructions.
   - Step 2: Encrypted payment simulation.
@@ -106,9 +108,12 @@ A modern, responsive, and visually stunning Nature Nursery & Houseplant Website 
 ## 🛠️ Technology Stack
 
 - **Framework**: React 19 + Vite 8
-- **Styling**: Tailwind CSS (custom botanical palette: Forest, Sage, Moss, Earth, Cream)
+- **Smooth Scrolling**: Lenis (`lenis`)
+- **Animation & Timelines**: GSAP 3 + ScrollTrigger
+- **Styling**: Tailwind CSS (custom botanical palette: `#001524`, `#445D48`, `#D6CC99`, `#FDE5D4`)
+- **Typography**: Google Fonts Outfit
 - **Icons**: Lucide React
-- **Animations & Effects**: HTML5 Canvas Particle Engine, Canvas Confetti, CSS keyframes
+- **Particle Engine**: HTML5 Multi-layer Canvas (`html2canvas`)
 - **State Management**: React Context API (`ShopContext`) with `localStorage` persistence
 
 ---
@@ -117,7 +122,7 @@ A modern, responsive, and visually stunning Nature Nursery & Houseplant Website 
 
 1. **Clone the repository**:
    ```bash
-   git clone <your-github-repo-url>
+   git clone https://github.com/rohith10ty/one-root.git
    cd "nature website"
    ```
 
