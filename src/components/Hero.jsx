@@ -1,80 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { ArrowRight, Sparkles, ShieldCheck, Leaf } from 'lucide-react';
+import FallingLeavesBackground from './FallingLeavesBackground';
 
 export default function Hero() {
-  const canvasRef = useRef(null);
-
-  // Interactive Floating Leaf & Pollen Canvas
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-
-    let animationFrameId;
-    let width = (canvas.width = canvas.parentElement.offsetWidth);
-    let height = (canvas.height = canvas.parentElement.offsetHeight);
-
-    const handleResize = () => {
-      if (!canvas.parentElement) return;
-      width = canvas.width = canvas.parentElement.offsetWidth;
-      height = canvas.height = canvas.parentElement.offsetHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    // Particle pool
-    const leaves = Array.from({ length: 22 }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      size: Math.random() * 7 + 4,
-      speedX: Math.random() * 0.7 - 0.2,
-      speedY: Math.random() * 0.5 + 0.3,
-      rotation: Math.random() * Math.PI * 2,
-      rotationSpeed: (Math.random() - 0.5) * 0.02,
-      opacity: Math.random() * 0.4 + 0.2,
-      color: ['#10b981', '#34d399', '#84cc16', '#6ee7b7', '#ca8a04'][Math.floor(Math.random() * 5)],
-      aspect: Math.random() * 0.6 + 0.8,
-    }));
-
-    const render = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      leaves.forEach((leaf) => {
-        leaf.y += leaf.speedY;
-        leaf.x += Math.sin(leaf.y * 0.01) * 0.6 + leaf.speedX;
-        leaf.rotation += leaf.rotationSpeed;
-
-        if (leaf.y > height + 20) {
-          leaf.y = -20;
-          leaf.x = Math.random() * width;
-        }
-        if (leaf.x > width + 20) leaf.x = -20;
-        if (leaf.x < -20) leaf.x = width + 20;
-
-        ctx.save();
-        ctx.translate(leaf.x, leaf.y);
-        ctx.rotate(leaf.rotation);
-        ctx.globalAlpha = leaf.opacity;
-        ctx.fillStyle = leaf.color;
-
-        ctx.beginPath();
-        ctx.ellipse(0, 0, leaf.size * leaf.aspect, leaf.size * 0.45, 0, 0, Math.PI * 2);
-        ctx.fill();
-
-        ctx.restore();
-      });
-
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   const scrollToPlants = () => {
     const el = document.getElementById('plants-catalog');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -87,15 +15,12 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative overflow-hidden mesh-gradient-hero pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-12 lg:pb-20">
-      {/* Background canvas for ambient organic floating leaves */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 pointer-events-none z-0 opacity-60"
-      />
+      {/* Real Botanical Falling Leaves Canvas Background */}
+      <FallingLeavesBackground leafCount={32} className="opacity-90" />
 
       {/* Decorative ambient blurred blobs */}
-      <div className="absolute top-8 left-1/4 w-72 h-72 bg-emerald-300/25 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-subtle"></div>
-      <div className="absolute bottom-8 right-8 w-60 h-60 bg-amber-200/25 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div className="absolute top-8 left-1/4 w-72 h-72 bg-emerald-300/20 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-subtle"></div>
+      <div className="absolute bottom-8 right-8 w-60 h-60 bg-amber-200/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
@@ -108,7 +33,7 @@ export default function Hero() {
               <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-ping"></span>
               <span className="text-[11px] sm:text-xs font-semibold text-forest-900 tracking-wide flex items-center gap-1">
                 <Sparkles className="w-3 h-3 text-emerald-600" />
-                Handcrafted Organic Botanical Nursery
+                One Root · Handcrafted Botanical Sanctuary
               </span>
             </div>
 
@@ -125,7 +50,7 @@ export default function Hero() {
 
             {/* Description */}
             <p className="mt-4 text-xs sm:text-sm lg:text-base text-forest-800/80 max-w-lg leading-relaxed font-normal">
-              Ethically nurtured indoor houseplants, resilient succulents, and vibrant botanicals delivered with zero plastic in climate-protective packaging.
+              At <strong>One Root</strong>, every plant is sustainably cultivated with living micro-biome soil and delivered with zero plastic in climate-protective packaging.
             </p>
 
             {/* CTA Action Buttons */}
@@ -174,7 +99,7 @@ export default function Hero() {
                 <div className="overflow-hidden rounded-2xl aspect-[4/4.6] relative">
                   <img
                     src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=700&q=85"
-                    alt="Lush Monstera Deliciosa Houseplant"
+                    alt="One Root Monstera Deliciosa Houseplant"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 via-transparent to-transparent"></div>

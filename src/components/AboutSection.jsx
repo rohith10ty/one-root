@@ -25,7 +25,7 @@ export default function AboutSection() {
               <div className="relative rounded-2xl overflow-hidden shadow-botanical border border-stone-200">
                 <img
                   src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=700&q=80"
-                  alt="Verdant Oasis Master Greenhouse"
+                  alt="One Root Master Greenhouse"
                   className="w-full h-[260px] sm:h-[320px] object-cover hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 via-transparent to-transparent"></div>
@@ -48,7 +48,7 @@ export default function AboutSection() {
                   <span className="text-[10px] font-bold uppercase tracking-wider">Permaculture Oath</span>
                 </div>
                 <p className="text-[11px] text-emerald-100/90 leading-relaxed italic">
-                  "We deliver rooted ecosystems engineered to flourish for decades."
+                  "One Root, infinite branches: we deliver living ecosystems engineered to flourish for decades."
                 </p>
                 <div className="mt-2 pt-1 border-t border-emerald-800 text-[10px] text-emerald-300 font-medium">
                   — Dr. Julian Vane, Horticulturist
@@ -70,7 +70,7 @@ export default function AboutSection() {
             </h2>
 
             <p className="mt-3 text-xs sm:text-sm text-stone-600 leading-relaxed">
-              Founded with a mission to heal the urban disconnect from living earth, <strong>Verdant Oasis</strong> connects modern homes with ethically grown, nutrient-rich botanicals.
+              Founded with a mission to heal the urban disconnect from living earth, <strong>One Root</strong> connects modern homes with ethically grown, nutrient-rich botanicals.
             </p>
 
             <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">

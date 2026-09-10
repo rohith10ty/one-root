@@ -18,10 +18,10 @@ export default function WhyChooseUs() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
           <div className="inline-flex items-center gap-1.5 text-[11px] uppercase font-bold tracking-wider text-emerald-700 bg-emerald-100/80 px-2.5 py-0.5 rounded-full mb-2">
-            <Sparkles className="w-3 h-3" /> The Verdant Advantage
+            <Sparkles className="w-3 h-3" /> The One Root Advantage
           </div>
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-forest-950 tracking-tight">
-            Why Choose Verdant Oasis
+            Why Choose One Root
           </h2>
           <p className="mt-2 text-stone-500 text-xs sm:text-sm leading-relaxed">
             Craftsmanship meets climate-controlled delivery so your botanicals arrive thriving.

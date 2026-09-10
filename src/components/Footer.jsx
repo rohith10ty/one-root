@@ -118,7 +118,7 @@ export default function Footer() {
                 <Sprout className="w-4.5 h-4.5 text-white" />
               </div>
               <span className="text-lg sm:text-xl font-serif font-bold text-white tracking-tight">
-                Verdant<span className="text-emerald-400 font-sans font-light">Oasis</span>
+                One<span className="text-emerald-400 font-sans font-light">Root</span>
               </span>
             </a>
 
@@ -213,7 +213,7 @@ export default function Footer() {
             </p>
             <p className="flex items-center gap-2">
               <Mail className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-              <span>botanist@verdantoasis.com</span>
+              <span>botanist@onerootnursery.com</span>
             </p>
             <p className="flex items-start gap-2 pt-0.5 text-stone-400">
               <Clock className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
@@ -232,7 +232,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-10 pt-6 border-t border-emerald-900/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-stone-500">
-          <p>© {new Date().getFullYear()} Verdant Oasis Nursery Inc. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} One Root Nursery Inc. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <a href="#hero" className="hover:text-stone-400 transition-colors">Privacy</a>
             <span>•</span>

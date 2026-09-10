@@ -104,7 +104,7 @@ export default function Navbar() {
             </div>
             <div>
               <span className="text-base sm:text-lg font-serif font-bold text-forest-950 tracking-tight flex items-center gap-1">
-                Verdant<span className="text-emerald-600 font-sans font-light">Oasis</span>
+                One<span className="text-emerald-600 font-sans font-light">Root</span>
               </span>
               <span className="hidden sm:block text-[9px] uppercase font-bold tracking-widest text-emerald-700/80 -mt-1">
                 Botanical Nursery

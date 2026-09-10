@@ -111,7 +111,7 @@ export default function ContactSection() {
               <div>
                 <h4 className="text-[11px] font-bold uppercase text-forest-950">Phone & Hotline</h4>
                 <p className="text-xs text-stone-600 mt-0.5">
-                  +1 (800) 492-7688 / botanist@verdantoasis.com
+                  +1 (800) 492-7688 / botanist@onerootnursery.com
                 </p>
               </div>
             </div>

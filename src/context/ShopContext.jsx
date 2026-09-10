@@ -8,7 +8,7 @@ export function ShopProvider({ children }) {
   // Cart state with localStorage
   const [cart, setCart] = useState(() => {
     try {
-      const saved = localStorage.getItem('verdant_cart');
+      const saved = localStorage.getItem('oneroot_cart') || localStorage.getItem('verdant_cart');
       return saved ? JSON.parse(saved) : [
         { ...PLANTS[0], quantity: 1, size: 'Medium (6" Pot)' },
         { ...PLANTS[5], quantity: 2, size: 'Small (4" Pot)' }
@@ -21,7 +21,7 @@ export function ShopProvider({ children }) {
   // Wishlist state with localStorage
   const [wishlist, setWishlist] = useState(() => {
     try {
-      const saved = localStorage.getItem('verdant_wishlist');
+      const saved = localStorage.getItem('oneroot_wishlist') || localStorage.getItem('verdant_wishlist');
       return saved ? JSON.parse(saved) : ['monstera-deliciosa', 'snake-plant-laurentii'];
     } catch {
       return [];
@@ -46,7 +46,7 @@ export function ShopProvider({ children }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem('verdant_cart', JSON.stringify(cart));
+      localStorage.setItem('oneroot_cart', JSON.stringify(cart));
     } catch {
       // ignore
     }
@@ -54,7 +54,7 @@ export function ShopProvider({ children }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem('verdant_wishlist', JSON.stringify(wishlist));
+      localStorage.setItem('oneroot_wishlist', JSON.stringify(wishlist));
     } catch {
       // ignore
     }
