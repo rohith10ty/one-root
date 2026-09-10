@@ -12,18 +12,15 @@ export default function PlantCatalog() {
   // Filter & Sort Logic
   const filteredPlants = useMemo(() => {
     return PLANTS.filter((plant) => {
-      // Category filter
       const matchesCategory =
         selectedCategory === 'all' || plant.categorySlug === selectedCategory;
 
-      // Search query
       const matchesSearch =
         !searchQuery.trim() ||
         plant.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         plant.botanicalName.toLowerCase().includes(searchQuery.toLowerCase()) ||
         plant.category.toLowerCase().includes(searchQuery.toLowerCase());
 
-      // Pet safe filter
       const matchesPet = !filterPetFriendly || plant.petFriendly;
 
       return matchesCategory && matchesSearch && matchesPet;
@@ -31,7 +28,7 @@ export default function PlantCatalog() {
       if (sortBy === 'price-low') return a.price - b.price;
       if (sortBy === 'price-high') return b.price - a.price;
       if (sortBy === 'rating') return b.rating - a.rating;
-      return 0; // default featured
+      return 0;
     });
   }, [selectedCategory, searchQuery, filterPetFriendly, sortBy]);
 
@@ -50,34 +47,34 @@ export default function PlantCatalog() {
   const hasActiveFilters = selectedCategory !== 'all' || searchQuery || filterPetFriendly;
 
   return (
-    <section id="plants-catalog" className="py-20 bg-cream-50/60 border-t border-forest-100/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="plants-catalog" className="py-12 sm:py-16 bg-cream-50/50 border-t border-forest-100/50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 text-xs uppercase font-bold tracking-widest text-emerald-700 bg-emerald-100/80 px-3.5 py-1 rounded-full mb-3">
-            <Sparkles className="w-3.5 h-3.5" /> Handpicked Botanicals
+        <div className="text-center max-w-2xl mx-auto mb-8">
+          <div className="inline-flex items-center gap-1.5 text-[11px] uppercase font-bold tracking-wider text-emerald-700 bg-emerald-100/80 px-2.5 py-0.5 rounded-full mb-2">
+            <Sparkles className="w-3 h-3" /> Handpicked Botanicals
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-forest-950 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-forest-950 tracking-tight">
             Featured Nursery Plants
           </h2>
-          <p className="mt-4 text-stone-600 text-sm sm:text-base leading-relaxed">
-            Each plant arrives rooted in organic soil, accompanied by tailored light metrics and our signature survival guarantee.
+          <p className="mt-2 text-stone-500 text-xs sm:text-sm leading-relaxed">
+            Rooted in organic compost soil with tailored light metrics and guaranteed safe delivery.
           </p>
         </div>
 
         {/* Filter Toolbar Controls */}
-        <div className="bg-white rounded-3xl p-4 sm:p-6 shadow-sm border border-stone-200/80 mb-10">
+        <div className="bg-white rounded-2xl p-3 sm:p-4 shadow-xs border border-stone-200 mb-6">
           
           {/* Top Row: Category Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-3 sm:pb-4 border-b border-stone-100 no-scrollbar">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-2 border-b border-stone-100 no-scrollbar">
             {categoriesList.map((cat) => (
               <button
                 key={cat.slug}
                 onClick={() => setSelectedCategory(cat.slug)}
-                className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-300 cursor-pointer ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                   selectedCategory === cat.slug
-                    ? 'bg-forest-900 text-white shadow-md shadow-forest-950/20 scale-102'
+                    ? 'bg-forest-900 text-white shadow-xs'
                     : 'bg-stone-100 text-stone-600 hover:bg-emerald-50 hover:text-forest-900'
                 }`}
               >
@@ -87,56 +84,56 @@ export default function PlantCatalog() {
           </div>
 
           {/* Bottom Row: Search, Pet Safe, and Sort by */}
-          <div className="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+          <div className="mt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
             
-            {/* Live Search within Grid */}
-            <div className="relative flex-1 max-w-md">
-              <Search className="w-4 h-4 text-emerald-600 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            {/* Live Search */}
+            <div className="relative flex-1 max-w-sm">
+              <Search className="w-3.5 h-3.5 text-emerald-600 absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                placeholder="Filter plants by name or trait..."
+                placeholder="Search plants by name or species..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm rounded-xl bg-stone-50 border border-stone-200 focus:border-emerald-500 focus:bg-white outline-none text-forest-950 transition-all font-medium"
+                className="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-stone-50 border border-stone-200 focus:border-emerald-500 focus:bg-white outline-none text-forest-950 font-medium"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-forest-900"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-forest-900"
                 >
-                  <X className="w-3.5 h-3.5" />
+                  <X className="w-3 h-3" />
                 </button>
               )}
             </div>
 
             {/* Quick Toggle & Sort */}
-            <div className="flex items-center gap-3 overflow-x-auto">
+            <div className="flex items-center gap-2 overflow-x-auto">
               
-              {/* Pet safe checkbox pill */}
+              {/* Pet safe checkbox */}
               <button
                 onClick={() => setFilterPetFriendly(!filterPetFriendly)}
-                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer shrink-0 ${
+                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-[11px] font-semibold border transition-all cursor-pointer shrink-0 ${
                   filterPetFriendly
                     ? 'bg-emerald-100/80 border-emerald-400 text-emerald-950'
                     : 'bg-stone-50 border-stone-200 text-stone-600 hover:bg-stone-100'
                 }`}
               >
-                <span>🐾 Pet-Friendly Only</span>
+                <span>🐾 Pet-Friendly</span>
               </button>
 
               {/* Sort selector */}
-              <div className="flex items-center gap-1.5 bg-stone-50 border border-stone-200 rounded-xl px-3 py-1.5 text-xs font-semibold text-stone-700 shrink-0">
-                <ArrowUpDown className="w-3.5 h-3.5 text-stone-500" />
+              <div className="flex items-center gap-1 bg-stone-50 border border-stone-200 rounded-xl px-2.5 py-1 text-[11px] font-semibold text-stone-700 shrink-0">
+                <ArrowUpDown className="w-3 h-3 text-stone-500" />
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
                   aria-label="Sort plants by"
-                  className="bg-transparent border-none outline-none text-forest-950 font-medium cursor-pointer"
+                  className="bg-transparent border-none outline-none text-forest-950 font-medium cursor-pointer text-[11px]"
                 >
-                  <option value="featured">Featured Picks</option>
+                  <option value="featured">Featured</option>
                   <option value="price-low">Price: Low to High</option>
                   <option value="price-high">Price: High to Low</option>
-                  <option value="rating">Highest Rated</option>
+                  <option value="rating">Top Rated</option>
                 </select>
               </div>
 
@@ -144,9 +141,9 @@ export default function PlantCatalog() {
               {hasActiveFilters && (
                 <button
                   onClick={resetFilters}
-                  className="flex items-center gap-1 text-xs text-rose-600 hover:text-rose-700 font-semibold px-2 py-1 shrink-0"
+                  className="flex items-center gap-1 text-[11px] text-rose-600 hover:text-rose-700 font-semibold px-1.5 py-0.5 shrink-0"
                 >
-                  <X className="w-3.5 h-3.5" /> Clear
+                  <X className="w-3 h-3" /> Clear
                 </button>
               )}
             </div>
@@ -156,34 +153,34 @@ export default function PlantCatalog() {
         </div>
 
         {/* Results Count Banner */}
-        <div className="flex items-center justify-between text-xs text-stone-500 mb-6 px-1">
+        <div className="flex items-center justify-between text-[11px] text-stone-500 mb-4 px-1">
           <span>Showing <strong>{filteredPlants.length}</strong> botanical specimens</span>
           {selectedCategory !== 'all' && (
-            <span className="text-emerald-700 font-semibold uppercase tracking-wider">
-              Category: {selectedCategory}
+            <span className="text-emerald-700 font-semibold uppercase tracking-wider text-[10px]">
+              {selectedCategory}
             </span>
           )}
         </div>
 
-        {/* Product Cards Grid */}
+        {/* Product Cards Grid: 2 cols on mobile, 3 on tablet, 4 on desktop */}
         {filteredPlants.length === 0 ? (
-          <div className="bg-white rounded-3xl p-12 text-center border border-dashed border-stone-300 max-w-lg mx-auto">
-            <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4">
-              <Filter className="w-8 h-8" />
+          <div className="bg-white rounded-2xl p-8 text-center border border-dashed border-stone-300 max-w-sm mx-auto">
+            <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3">
+              <Filter className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-serif font-bold text-forest-950">No plants match your criteria</h3>
-            <p className="text-stone-500 text-sm mt-2">
-              Try adjusting your category selection or clearing the search terms.
+            <h3 className="text-base font-serif font-bold text-forest-950">No plants found</h3>
+            <p className="text-stone-500 text-xs mt-1">
+              Try adjusting your category or search keywords.
             </p>
             <button
               onClick={resetFilters}
-              className="mt-6 px-6 py-2.5 rounded-xl bg-forest-900 text-white text-xs font-semibold hover:bg-forest-800 transition-colors"
+              className="mt-4 px-4 py-2 rounded-xl bg-forest-900 text-white text-xs font-semibold hover:bg-forest-800 transition-colors"
             >
-              Reset All Filters
+              Reset Filters
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
             {filteredPlants.map((plant) => (
               <PlantCard key={plant.id} plant={plant} />
             ))}

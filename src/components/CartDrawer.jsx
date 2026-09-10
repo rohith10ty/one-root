@@ -43,10 +43,9 @@ export default function CartDrawer({ onOpenCheckout }) {
     const el = itemRefs.current[key];
     
     if (el) {
-      // Trigger canvas particle disintegration
       await disintegrateElement(el, {
-        particleCount: 140,
-        duration: 900,
+        particleCount: 120,
+        duration: 850,
         direction: 'right',
         colors: ['#10b981', '#34d399', '#84cc16', '#eab308', '#059669'],
       });
@@ -64,70 +63,69 @@ export default function CartDrawer({ onOpenCheckout }) {
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* Dark backdrop */}
       <div
-        className="absolute inset-0 bg-forest-950/60 backdrop-blur-sm transition-opacity animate-in fade-in"
+        className="absolute inset-0 bg-forest-950/60 backdrop-blur-xs transition-opacity animate-in fade-in"
         onClick={() => setIsCartOpen(false)}
       />
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between animate-in slide-in-from-right duration-300">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-6 sm:pl-10">
+        <div className="w-screen max-w-sm sm:max-w-md bg-white shadow-2xl flex flex-col justify-between animate-in slide-in-from-right duration-300">
           
           {/* Drawer Header */}
-          <div className="p-6 border-b border-stone-100 flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-forest-900 text-emerald-300 flex items-center justify-center">
-                <ShoppingBag className="w-5 h-5" />
+          <div className="p-4 sm:p-5 border-b border-stone-100 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-xl bg-forest-900 text-emerald-300 flex items-center justify-center">
+                <ShoppingBag className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="text-lg font-serif font-bold text-forest-950">Nursery Cart</h3>
-                <span className="text-xs text-stone-400">{cartItemsCount} living items</span>
+                <h3 className="text-base font-serif font-bold text-forest-950">Nursery Cart</h3>
+                <span className="text-[11px] text-stone-400">{cartItemsCount} living items</span>
               </div>
             </div>
 
             <button
               onClick={() => setIsCartOpen(false)}
-              className="p-2 rounded-full text-stone-400 hover:text-forest-900 hover:bg-stone-100 transition-colors cursor-pointer"
+              className="p-1.5 rounded-full text-stone-400 hover:text-forest-900 hover:bg-stone-100 transition-colors cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
           </div>
 
           {/* Free Shipping Progress Meter */}
-          <div className="px-6 py-3 bg-forest-50/80 border-b border-emerald-100">
-            <div className="flex items-center justify-between text-xs mb-1.5">
-              <span className="font-semibold text-forest-950 flex items-center gap-1">
-                <Truck className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="px-4 sm:px-5 py-2.5 bg-forest-50/80 border-b border-emerald-100">
+            <div className="flex items-center justify-between text-[11px] mb-1">
+              <span className="font-semibold text-forest-950 flex items-center gap-1 truncate">
+                <Truck className="w-3 h-3 text-emerald-600 shrink-0" />
                 {cartSubtotal >= freeShippingThreshold ? (
-                  <span className="text-emerald-700 font-bold">You unlocked Free Climate Delivery! 🎉</span>
+                  <span className="text-emerald-700 font-bold">Free Delivery unlocked! 🎉</span>
                 ) : (
-                  <span>Add <strong>${amountToFreeShipping}</strong> more for Free Delivery</span>
+                  <span>Add <strong>${amountToFreeShipping}</strong> for Free Delivery</span>
                 )}
               </span>
-              <span className="font-bold text-emerald-700">{progressPercent}%</span>
+              <span className="font-bold text-emerald-700 ml-1">{progressPercent}%</span>
             </div>
-            <div className="w-full h-2 rounded-full bg-stone-200 overflow-hidden">
+            <div className="w-full h-1.5 rounded-full bg-stone-200 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all duration-500"
+                className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all duration-300"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
           </div>
 
           {/* Cart Item List */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-stone-100">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3 divide-y divide-stone-100">
             {cart.length === 0 ? (
-              <div className="py-16 text-center text-stone-400">
-                <div className="w-16 h-16 rounded-full bg-stone-100 text-stone-400 flex items-center justify-center mx-auto mb-4">
-                  <ShoppingBag className="w-8 h-8" />
+              <div className="py-12 text-center text-stone-400">
+                <div className="w-12 h-12 rounded-full bg-stone-100 text-stone-400 flex items-center justify-center mx-auto mb-3">
+                  <ShoppingBag className="w-6 h-6" />
                 </div>
-                <p className="text-base font-medium text-forest-950">Your cart is currently empty</p>
-                <p className="text-xs text-stone-400 mt-1">Explore our indoor & outdoor botanicals</p>
+                <p className="text-sm font-medium text-forest-950">Your cart is empty</p>
+                <p className="text-[11px] text-stone-400 mt-0.5">Explore our indoor & outdoor flora</p>
                 <button
                   onClick={() => setIsCartOpen(false)}
-                  className="mt-6 px-6 py-2.5 rounded-xl bg-forest-900 text-white text-xs font-semibold hover:bg-forest-800 transition-colors cursor-pointer"
+                  className="mt-4 px-5 py-2 rounded-xl bg-forest-900 text-white text-xs font-semibold hover:bg-forest-800 transition-colors cursor-pointer"
                 >
-                  Start Plant Shopping
+                  Start Shopping
                 </button>
               </div>
             ) : (
@@ -138,38 +136,38 @@ export default function CartDrawer({ onOpenCheckout }) {
                   <div
                     key={itemKey}
                     ref={(el) => (itemRefs.current[itemKey] = el)}
-                    className="pt-4 first:pt-0 flex items-center gap-4 transition-all"
+                    className="pt-3 first:pt-0 flex items-center gap-3 transition-all"
                   >
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-16 h-16 rounded-2xl object-cover border border-stone-100 shrink-0"
+                      className="w-14 h-14 rounded-xl object-cover border border-stone-100 shrink-0"
                     />
 
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-sm font-semibold text-forest-950 truncate">
+                      <h4 className="text-xs font-semibold text-forest-950 truncate">
                         {item.name}
                       </h4>
-                      <p className="text-[11px] text-stone-400 truncate">{item.size}</p>
-                      <p className="text-xs font-bold text-forest-900 mt-1">
-                        ${item.price} <span className="text-[10px] text-stone-400 font-normal">each</span>
+                      <p className="text-[10px] text-stone-400 truncate">{item.size}</p>
+                      <p className="text-[11px] font-bold text-forest-900 mt-0.5">
+                        ${item.price}
                       </p>
 
                       {/* Quantity Stepper */}
-                      <div className="flex items-center gap-2 mt-2">
-                        <div className="flex items-center border border-stone-200 rounded-lg bg-stone-50 overflow-hidden">
+                      <div className="flex items-center gap-2 mt-1.5">
+                        <div className="flex items-center border border-stone-200 rounded-md bg-stone-50 overflow-hidden">
                           <button
                             onClick={() => updateQuantity(item.id, item.size, item.quantity - 1)}
-                            className="px-2 py-0.5 text-xs text-stone-600 hover:bg-stone-200"
+                            className="px-1.5 py-0.5 text-xs text-stone-600 hover:bg-stone-200"
                           >
                             -
                           </button>
-                          <span className="px-2 py-0.5 text-xs font-bold text-forest-950">
+                          <span className="px-1.5 py-0.5 text-[11px] font-bold text-forest-950">
                             {item.quantity}
                           </span>
                           <button
                             onClick={() => updateQuantity(item.id, item.size, item.quantity + 1)}
-                            className="px-2 py-0.5 text-xs text-stone-600 hover:bg-stone-200"
+                            className="px-1.5 py-0.5 text-xs text-stone-600 hover:bg-stone-200"
                           >
                             +
                           </button>
@@ -181,14 +179,14 @@ export default function CartDrawer({ onOpenCheckout }) {
                       </div>
                     </div>
 
-                    {/* Disintegrate Particle Removal Button */}
+                    {/* Disintegrate Particle Removal */}
                     <button
                       onClick={() => handleDisintegrateRemove(item)}
-                      title="Disintegrate and compost item"
-                      className="p-2 rounded-xl text-stone-400 hover:text-rose-600 hover:bg-rose-50 transition-all cursor-pointer group shrink-0"
+                      title="Disintegrate and remove item"
+                      className="p-1.5 rounded-lg text-stone-400 hover:text-rose-600 hover:bg-rose-50 transition-all cursor-pointer shrink-0"
                       aria-label="Remove item"
                     >
-                      <Trash2 className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                      <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 );
@@ -198,42 +196,42 @@ export default function CartDrawer({ onOpenCheckout }) {
 
           {/* Drawer Footer / Checkout Summary */}
           {cart.length > 0 && (
-            <div className="p-6 border-t border-stone-100 bg-stone-50/70 space-y-4">
+            <div className="p-4 sm:p-5 border-t border-stone-100 bg-stone-50/70 space-y-3">
               
-              {/* Promo code input */}
+              {/* Promo code */}
               {appliedCoupon ? (
-                <div className="flex items-center justify-between p-2.5 rounded-xl bg-emerald-100/70 border border-emerald-300 text-xs">
-                  <div className="flex items-center gap-1.5 text-emerald-900 font-semibold">
-                    <Tag className="w-3.5 h-3.5" />
-                    <span>Coupon <strong>{appliedCoupon}</strong> applied (-{discountPercent}%)</span>
+                <div className="flex items-center justify-between p-2 rounded-lg bg-emerald-100/70 border border-emerald-300 text-[11px]">
+                  <div className="flex items-center gap-1 text-emerald-900 font-semibold">
+                    <Tag className="w-3 h-3" />
+                    <span>Coupon <strong>{appliedCoupon}</strong> (-{discountPercent}%)</span>
                   </div>
                   <button
                     onClick={removeCoupon}
                     className="text-stone-500 hover:text-stone-900 font-bold"
                   >
-                    <X className="w-3.5 h-3.5" />
+                    <X className="w-3 h-3" />
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleApplyCoupon} className="flex gap-2">
+                <form onSubmit={handleApplyCoupon} className="flex gap-1.5">
                   <input
                     type="text"
-                    placeholder="Coupon code (e.g. PLANTLOVE15)"
+                    placeholder="Coupon (PLANTLOVE15)"
                     value={couponInput}
                     onChange={(e) => setCouponInput(e.target.value)}
-                    className="flex-1 px-3 py-2 text-xs rounded-xl bg-white border border-stone-200 focus:border-emerald-500 outline-none uppercase font-mono"
+                    className="flex-1 px-2.5 py-1.5 text-xs rounded-lg bg-white border border-stone-200 focus:border-emerald-500 outline-none uppercase font-mono"
                   />
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-stone-900 text-white rounded-xl text-xs font-semibold hover:bg-forest-800 transition-colors"
+                    className="px-3 py-1.5 bg-stone-900 text-white rounded-lg text-xs font-semibold hover:bg-forest-800 transition-colors"
                   >
                     Apply
                   </button>
                 </form>
               )}
 
-              {/* Price Calculations */}
-              <div className="space-y-1.5 text-xs text-stone-600">
+              {/* Price Breakdown */}
+              <div className="space-y-1 text-xs text-stone-600">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
                   <span className="font-semibold text-forest-950">${cartSubtotal.toFixed(2)}</span>
@@ -245,12 +243,12 @@ export default function CartDrawer({ onOpenCheckout }) {
                   </div>
                 )}
                 <div className="flex justify-between">
-                  <span>Eco-Protective Shipping</span>
+                  <span>Shipping</span>
                   <span>{shippingFee === 0 ? <strong className="text-emerald-700">FREE</strong> : `$${shippingFee}`}</span>
                 </div>
-                <div className="pt-2 border-t border-stone-200 flex justify-between text-sm font-bold text-forest-950">
+                <div className="pt-1.5 border-t border-stone-200 flex justify-between text-xs font-bold text-forest-950">
                   <span>Total Due</span>
-                  <span className="text-base font-extrabold text-forest-950">${cartTotal.toFixed(2)}</span>
+                  <span className="text-sm font-extrabold text-forest-950">${cartTotal.toFixed(2)}</span>
                 </div>
               </div>
 
@@ -260,18 +258,18 @@ export default function CartDrawer({ onOpenCheckout }) {
                   setIsCartOpen(false);
                   if (onOpenCheckout) onOpenCheckout();
                 }}
-                className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl bg-forest-900 hover:bg-forest-800 text-white font-semibold text-sm transition-all shadow-xl hover:shadow-forest-950/20 cursor-pointer group"
+                className="w-full flex items-center justify-center gap-1.5 py-3 px-4 rounded-xl bg-forest-900 hover:bg-forest-800 text-white font-semibold text-xs sm:text-sm transition-all shadow-md cursor-pointer group"
               >
-                <span>Proceed to Secure Checkout</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <span>Checkout</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </button>
 
-              <div className="flex items-center justify-center gap-4 text-[10px] text-stone-400">
+              <div className="flex items-center justify-center gap-3 text-[9.5px] text-stone-400">
                 <span className="flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> 256-Bit Encrypted
+                  <ShieldCheck className="w-3 h-3 text-emerald-600" /> 256-Bit Encrypted
                 </span>
                 <span>•</span>
-                <span>30-Day Plant Guarantee</span>
+                <span>30-Day Guarantee</span>
               </div>
 
             </div>

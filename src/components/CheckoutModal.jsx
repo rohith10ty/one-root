@@ -31,45 +31,45 @@ export default function CheckoutModal({ isOpen, onClose }) {
 
     setTimeout(() => {
       setIsProcessing(false);
-      setStep(3); // confirmation
+      setStep(3);
 
       confetti({
-        particleCount: 120,
-        spread: 80,
+        particleCount: 100,
+        spread: 70,
         origin: { y: 0.6 },
         colors: ['#10b981', '#34d399', '#f59e0b', '#84cc16'],
       });
-    }, 1200);
+    }, 1100);
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-forest-950/70 backdrop-blur-md animate-in fade-in overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-forest-950/70 backdrop-blur-xs animate-in fade-in overflow-y-auto">
       <div
-        className="bg-white rounded-[2.5rem] max-w-2xl w-full p-6 sm:p-10 shadow-2xl border border-stone-200 relative animate-in zoom-in-95 my-8 max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-3xl max-w-lg w-full p-5 sm:p-7 shadow-2xl border border-stone-200 relative animate-in zoom-in-95 my-4 max-h-[88vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 w-10 h-10 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-forest-900 transition-colors cursor-pointer"
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-forest-900 transition-colors cursor-pointer"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
         {/* Stepper Indicator */}
         {step < 3 && (
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <div className="flex items-center gap-2">
-              <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${step >= 1 ? 'bg-forest-900 text-white' : 'bg-stone-200 text-stone-600'}`}>
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <div className="flex items-center gap-1.5">
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold ${step >= 1 ? 'bg-forest-900 text-white' : 'bg-stone-200 text-stone-600'}`}>
                 1
               </span>
-              <span className="text-xs font-semibold text-forest-950">Eco Shipping</span>
+              <span className="text-xs font-semibold text-forest-950">Shipping</span>
             </div>
-            <div className="w-10 h-0.5 bg-stone-200"></div>
-            <div className="flex items-center gap-2">
-              <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${step >= 2 ? 'bg-forest-900 text-white' : 'bg-stone-200 text-stone-600'}`}>
+            <div className="w-8 h-0.5 bg-stone-200"></div>
+            <div className="flex items-center gap-1.5">
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold ${step >= 2 ? 'bg-forest-900 text-white' : 'bg-stone-200 text-stone-600'}`}>
                 2
               </span>
-              <span className="text-xs font-semibold text-forest-950">Secure Payment</span>
+              <span className="text-xs font-semibold text-forest-950">Payment</span>
             </div>
           </div>
         )}
@@ -77,16 +77,16 @@ export default function CheckoutModal({ isOpen, onClose }) {
         {/* Step 1: Shipping Form */}
         {step === 1 && (
           <div>
-            <div className="mb-6">
-              <h3 className="text-2xl font-serif font-bold text-forest-950">Climate Delivery Details</h3>
-              <p className="text-xs sm:text-sm text-stone-500 mt-1">
+            <div className="mb-4">
+              <h3 className="text-lg sm:text-xl font-serif font-bold text-forest-950">Delivery Address</h3>
+              <p className="text-xs text-stone-500 mt-0.5">
                 Where should we hand-deliver your living botanicals?
               </p>
             </div>
 
-            <form onSubmit={(e) => { e.preventDefault(); setStep(2); }} className="space-y-4">
+            <form onSubmit={(e) => { e.preventDefault(); setStep(2); }} className="space-y-3">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">
                   Recipient Name
                 </label>
                 <input
@@ -94,12 +94,12 @@ export default function CheckoutModal({ isOpen, onClose }) {
                   required
                   value={shippingData.fullName}
                   onChange={(e) => setShippingData({ ...shippingData, fullName: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 text-sm font-medium"
+                  className="w-full px-3 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs font-medium"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">
                   Street Address
                 </label>
                 <input
@@ -107,13 +107,13 @@ export default function CheckoutModal({ isOpen, onClose }) {
                   required
                   value={shippingData.address}
                   onChange={(e) => setShippingData({ ...shippingData, address: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 text-sm font-medium"
+                  className="w-full px-3 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs font-medium"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">
                     City
                   </label>
                   <input
@@ -121,11 +121,11 @@ export default function CheckoutModal({ isOpen, onClose }) {
                     required
                     value={shippingData.city}
                     onChange={(e) => setShippingData({ ...shippingData, city: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 text-sm font-medium"
+                    className="w-full px-3 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs font-medium"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">
                     Zip / Postal Code
                   </label>
                   <input
@@ -133,32 +133,32 @@ export default function CheckoutModal({ isOpen, onClose }) {
                     required
                     value={shippingData.zip}
                     onChange={(e) => setShippingData({ ...shippingData, zip: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 text-sm font-medium"
+                    className="w-full px-3 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs font-medium"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">
-                  Special Delivery / Care Note
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">
+                  Delivery / Shaded Porch Note
                 </label>
                 <input
                   type="text"
                   value={shippingData.ecoNote}
                   onChange={(e) => setShippingData({ ...shippingData, ecoNote: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 text-sm font-medium"
+                  className="w-full px-3 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs font-medium"
                   placeholder="e.g. Leave in shaded porch"
                 />
               </div>
 
-              <div className="pt-4 flex justify-between items-center">
-                <span className="text-xs text-stone-500">Order Subtotal: <strong>${cartTotal.toFixed(2)}</strong></span>
+              <div className="pt-3 flex justify-between items-center">
+                <span className="text-xs text-stone-500">Subtotal: <strong>${cartTotal.toFixed(2)}</strong></span>
                 <button
                   type="submit"
-                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-forest-900 hover:bg-forest-800 text-white font-semibold text-sm cursor-pointer shadow-md"
+                  className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-forest-900 hover:bg-forest-800 text-white font-semibold text-xs cursor-pointer shadow-xs"
                 >
-                  <span>Continue to Payment</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Continue</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </form>
@@ -168,38 +168,38 @@ export default function CheckoutModal({ isOpen, onClose }) {
         {/* Step 2: Payment Simulator */}
         {step === 2 && (
           <div>
-            <div className="mb-6">
-              <h3 className="text-2xl font-serif font-bold text-forest-950">Payment Simulation</h3>
-              <p className="text-xs sm:text-sm text-stone-500 mt-1">
-                Encrypted with 256-bit TLS botanical gateway.
+            <div className="mb-4">
+              <h3 className="text-lg sm:text-xl font-serif font-bold text-forest-950">Payment Simulation</h3>
+              <p className="text-xs text-stone-500 mt-0.5">
+                Encrypted 256-bit TLS simulated gateway.
               </p>
             </div>
 
-            <form onSubmit={handlePlaceOrder} className="space-y-4">
-              <div className="p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50/50 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <CreditCard className="w-5 h-5 text-emerald-700" />
+            <form onSubmit={handlePlaceOrder} className="space-y-3">
+              <div className="p-3 rounded-xl border-2 border-emerald-500 bg-emerald-50/50 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <CreditCard className="w-4.5 h-4.5 text-emerald-700" />
                   <div>
                     <span className="text-xs font-bold text-forest-950 block">Instant Card / Digital Wallet</span>
-                    <span className="text-[11px] text-stone-500">Apple Pay, Visa, Mastercard, Google Pay</span>
+                    <span className="text-[10px] text-stone-500">Apple Pay, Visa, Mastercard, Google Pay</span>
                   </div>
                 </div>
-                <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-600 mb-1">
                   Card Number (Demo)
                 </label>
                 <input
                   type="text"
                   readOnly
                   value="4242 •••• •••• 4242"
-                  className="w-full px-4 py-3 rounded-xl bg-stone-100 border border-stone-200 text-sm font-mono font-medium text-stone-700"
+                  className="w-full px-3 py-2 rounded-xl bg-stone-100 border border-stone-200 text-xs font-mono font-medium text-stone-700"
                 />
               </div>
 
-              <div className="p-4 rounded-2xl bg-stone-50 text-xs space-y-1.5 text-stone-600">
+              <div className="p-3 rounded-xl bg-stone-50 text-xs space-y-1 text-stone-600">
                 <div className="flex justify-between">
                   <span>Shipping to:</span>
                   <span className="font-semibold text-forest-950">{shippingData.fullName}, {shippingData.city}</span>
@@ -210,75 +210,74 @@ export default function CheckoutModal({ isOpen, onClose }) {
                 </div>
                 {discountAmount > 0 && (
                   <div className="flex justify-between text-emerald-700">
-                    <span>Discount applied ({appliedCoupon}):</span>
+                    <span>Discount ({appliedCoupon}):</span>
                     <span>-${discountAmount.toFixed(2)}</span>
                   </div>
                 )}
-                <div className="pt-2 border-t flex justify-between font-bold text-forest-950 text-sm">
-                  <span>Final Total:</span>
-                  <span>${cartTotal.toFixed(2)}</span>
+                <div className="pt-1.5 border-t flex justify-between font-bold text-forest-950 text-xs">
+                  <span>Total:</span>
+                  <span className="text-sm font-extrabold text-forest-950">${cartTotal.toFixed(2)}</span>
                 </div>
               </div>
 
-              <div className="pt-4 flex items-center justify-between gap-4">
+              <div className="pt-3 flex items-center justify-between gap-3">
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="px-4 py-3 text-xs font-semibold text-stone-600 hover:text-stone-900"
+                  className="px-3 py-2 text-xs font-semibold text-stone-600 hover:text-stone-900 cursor-pointer"
                 >
-                  ← Back to Address
+                  ← Back
                 </button>
                 <button
                   type="submit"
                   disabled={isProcessing}
-                  className="flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-forest-900 hover:bg-forest-800 text-white font-semibold text-sm cursor-pointer shadow-lg"
+                  className="flex-1 flex items-center justify-center gap-1.5 py-3 px-4 rounded-xl bg-forest-900 hover:bg-forest-800 text-white font-semibold text-xs cursor-pointer shadow-md"
                 >
-                  <Lock className="w-4 h-4 text-emerald-300" />
-                  <span>{isProcessing ? 'Nurturing & Packing...' : `Confirm & Pay $${cartTotal.toFixed(2)}`}</span>
+                  <Lock className="w-3.5 h-3.5 text-emerald-300" />
+                  <span>{isProcessing ? 'Packing...' : `Pay $${cartTotal.toFixed(2)}`}</span>
                 </button>
               </div>
             </form>
           </div>
         )}
 
-        {/* Step 3: Order Confirmation & Tree Certificate */}
+        {/* Step 3: Order Confirmation */}
         {step === 3 && (
-          <div className="text-center py-6 animate-in zoom-in-95">
-            <div className="w-20 h-20 rounded-3xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-5 shadow-inner">
-              <CheckCircle2 className="w-10 h-10" />
+          <div className="text-center py-4">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-3">
+              <CheckCircle2 className="w-8 h-8" />
             </div>
 
-            <span className="text-xs uppercase font-bold tracking-widest text-emerald-700 bg-emerald-100 px-3.5 py-1 rounded-full">
+            <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
               Order #VO-{orderId} Confirmed
             </span>
 
-            <h3 className="text-3xl font-serif font-bold text-forest-950 mt-4">
+            <h3 className="text-xl sm:text-2xl font-serif font-bold text-forest-950 mt-2">
               Your Botanicals Are Being Packed!
             </h3>
 
-            <p className="text-sm text-stone-600 mt-2 max-w-md mx-auto leading-relaxed">
-              We've dispatched confirmation to your email. Our horticulturalists will inspect, hydrate, and nestle your plants into zero-plastic thermal packaging.
+            <p className="text-xs text-stone-600 mt-1 max-w-sm mx-auto leading-relaxed">
+              We've dispatched confirmation to your email. Our horticulturalists will inspect and hydrate your plants.
             </p>
 
-            {/* Tree planted reward */}
-            <div className="mt-6 p-5 rounded-2xl bg-forest-50 border border-emerald-200/80 max-w-md mx-auto flex items-center gap-4 text-left">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                <TreePine className="w-7 h-7" />
+            <div className="mt-4 p-3.5 rounded-xl bg-forest-50 border border-emerald-200/80 max-w-sm mx-auto flex items-center gap-3 text-left">
+              <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                <TreePine className="w-5 h-5" />
               </div>
               <div>
                 <h4 className="text-xs font-bold text-forest-950">1 Native Tree Planted!</h4>
-                <p className="text-[11px] text-stone-600 mt-0.5">
-                  Thanks to your adoption today, a native mangrove seedling has been funded in our coastal restoration program.
+                <p className="text-[10.5px] text-stone-600 mt-0.5">
+                  A native mangrove seedling has been funded in our coastal restoration program.
                 </p>
               </div>
             </div>
 
-            <div className="mt-8 flex justify-center">
+            <div className="mt-6 flex justify-center">
               <button
                 onClick={onClose}
-                className="px-8 py-3.5 rounded-xl bg-forest-900 hover:bg-forest-800 text-white font-semibold text-sm cursor-pointer shadow-lg"
+                className="px-6 py-2.5 rounded-xl bg-forest-900 hover:bg-forest-800 text-white font-semibold text-xs cursor-pointer shadow-md"
               >
-                Return to Living Sanctuary
+                Return to Nursery
               </button>
             </div>
           </div>

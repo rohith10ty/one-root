@@ -9,8 +9,7 @@ const INITIAL_SAMPLES = [
     species: 'Monstera Deliciosa',
     status: 'Ready for Pruning',
     color: 'from-amber-800/20 to-emerald-950/40',
-    borderColor: 'border-amber-400/40',
-    iconBg: 'bg-amber-100 text-amber-800',
+    borderColor: 'border-amber-400/30',
     particleColors: ['#f59e0b', '#d97706', '#10b981', '#059669', '#78350f', '#fef3c7'],
     image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=400&q=80',
   },
@@ -20,8 +19,7 @@ const INITIAL_SAMPLES = [
     species: 'Invasive Greenhouse Moss',
     status: 'Excess Foliage',
     color: 'from-lime-900/20 to-forest-950/40',
-    borderColor: 'border-lime-400/40',
-    iconBg: 'bg-lime-100 text-lime-800',
+    borderColor: 'border-lime-400/30',
     particleColors: ['#84cc16', '#65a30d', '#10b981', '#34d399', '#a3e635'],
     image: 'https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=400&q=80',
   },
@@ -31,8 +29,7 @@ const INITIAL_SAMPLES = [
     species: 'Phalaenopsis Petal',
     status: 'Post-Bloom Phase',
     color: 'from-rose-900/20 to-purple-950/40',
-    borderColor: 'border-rose-400/40',
-    iconBg: 'bg-rose-100 text-rose-800',
+    borderColor: 'border-rose-400/30',
     particleColors: ['#f43f5e', '#fb7185', '#fda4af', '#10b981', '#e11d48'],
     image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=400&q=80',
   },
@@ -48,10 +45,9 @@ export default function DisintegrateDemo() {
     const el = cardRefs.current[sample.id];
     if (!el) return;
 
-    // Trigger canvas particle disintegration physics
     await disintegrateElement(el, {
-      particleCount: 180,
-      duration: 1100,
+      particleCount: 140,
+      duration: 950,
       direction: 'right',
       colors: sample.particleColors,
     });
@@ -65,44 +61,40 @@ export default function DisintegrateDemo() {
   };
 
   return (
-    <section className="py-20 bg-forest-950 text-white relative overflow-hidden mesh-gradient-dark">
-      {/* Decorative ambient background glows */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-lime-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-12 sm:py-16 bg-forest-950 text-white relative overflow-hidden mesh-gradient-dark">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs uppercase font-bold tracking-widest text-emerald-300 bg-emerald-900/60 border border-emerald-500/30 px-3.5 py-1 rounded-full mb-3 backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> Advanced Particle Animation
+            <div className="inline-flex items-center gap-1.5 text-[11px] uppercase font-bold tracking-wider text-emerald-300 bg-emerald-900/60 border border-emerald-500/30 px-2.5 py-0.5 rounded-full mb-2">
+              <Sparkles className="w-3 h-3 text-emerald-400" /> Particle Disintegration
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white">
-              Botanical Pruning & Disintegration Studio
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-white">
+              Botanical Pruner Studio
             </h2>
-            <p className="mt-3 text-stone-300 max-w-2xl text-sm sm:text-base leading-relaxed">
-              Experience our custom canvas particle disintegration engine. In natural organic permaculture, wilted leaves aren't wasted—they dissolve back into nutrient-rich soil spores. Click below to watch the live particle dispersal!
+            <p className="mt-2 text-stone-300 max-w-xl text-xs sm:text-sm leading-relaxed">
+              Watch our canvas disintegration engine dissolve wilted foliage into wind-blown spores that return to organic compost soil.
             </p>
           </div>
 
-          <div className="flex items-center gap-4 shrink-0">
-            <div className="bg-white/10 backdrop-blur-md border border-white/15 px-4 py-2 rounded-2xl flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                <Wind className="w-5 h-5" />
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-xl flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                <Wind className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-xs text-stone-400">Composted Spores</p>
-                <p className="text-lg font-bold font-mono text-emerald-300">{compostCount} Elements</p>
+                <p className="text-[10px] text-stone-400">Composted Spores</p>
+                <p className="text-sm font-bold font-mono text-emerald-300">{compostCount} Elements</p>
               </div>
             </div>
 
             {disintegratedIds.length > 0 && (
               <button
                 onClick={handleRegrowAll}
-                className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm shadow-lg hover:shadow-emerald-600/30 transition-all cursor-pointer group"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all cursor-pointer group"
               >
-                <RefreshCw className="w-4 h-4 group-hover:rotate-180 transition-transform duration-500" />
+                <RefreshCw className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform" />
                 <span>Regrow All</span>
               </button>
             )}
@@ -110,7 +102,7 @@ export default function DisintegrateDemo() {
         </div>
 
         {/* 3 Interactive Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
           {samples.map((sample) => {
             const isDisintegrated = disintegratedIds.includes(sample.id);
 
@@ -118,63 +110,63 @@ export default function DisintegrateDemo() {
               <div
                 key={sample.id}
                 ref={(el) => (cardRefs.current[sample.id] = el)}
-                className={`relative rounded-3xl p-6 border transition-all duration-300 ${
+                className={`relative rounded-2xl p-4 sm:p-5 border transition-all duration-300 ${
                   isDisintegrated
-                    ? 'border-dashed border-emerald-800/50 bg-emerald-950/20 min-h-[320px] flex flex-col items-center justify-center text-center'
-                    : `bg-gradient-to-b ${sample.color} ${sample.borderColor} shadow-2xl backdrop-blur-xl hover:border-emerald-400`
+                    ? 'border-dashed border-emerald-800/50 bg-emerald-950/20 min-h-[260px] flex flex-col items-center justify-center text-center'
+                    : `bg-gradient-to-b ${sample.color} ${sample.borderColor} shadow-md backdrop-blur-xl hover:border-emerald-400`
                 }`}
               >
                 {isDisintegrated ? (
-                  <div className="animate-in fade-in zoom-in duration-500 p-6 flex flex-col items-center">
-                    <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-3">
-                      <Sparkles className="w-7 h-7 animate-spin" />
+                  <div className="animate-in fade-in zoom-in p-4 flex flex-col items-center">
+                    <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-2">
+                      <Sparkles className="w-5 h-5 animate-spin" />
                     </div>
-                    <h4 className="text-base font-serif font-bold text-emerald-200">
+                    <h4 className="text-sm font-serif font-bold text-emerald-200">
                       Disintegrated into Soil!
                     </h4>
-                    <p className="text-xs text-stone-400 mt-1 max-w-xs">
-                      180 wind-borne particles returned to natural compost.
+                    <p className="text-[11px] text-stone-400 mt-0.5 max-w-xs">
+                      Wind-borne particles returned to natural compost.
                     </p>
                     <button
                       onClick={() =>
                         setDisintegratedIds((prev) => prev.filter((id) => id !== sample.id))
                       }
-                      className="mt-4 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-colors"
+                      className="mt-3 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-[11px] font-semibold text-white transition-colors cursor-pointer"
                     >
                       Regrow Leaf
                     </button>
                   </div>
                 ) : (
                   <>
-                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-5 border border-white/10">
+                    <div className="relative aspect-[16/10] rounded-xl overflow-hidden mb-3 border border-white/10">
                       <img
                         src={sample.image}
                         alt={sample.title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent"></div>
-                      <span className="absolute bottom-3 left-3 text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-stone-300">
+                      <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 via-transparent to-transparent"></div>
+                      <span className="absolute bottom-2 left-2 text-[9.5px] font-mono px-2 py-0.5 rounded-full bg-black/60 text-stone-300">
                         {sample.status}
                       </span>
                     </div>
 
                     <div>
-                      <span className="text-[11px] uppercase font-bold tracking-widest text-emerald-400 block mb-1">
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 block mb-0.5">
                         {sample.species}
                       </span>
-                      <h3 className="text-xl font-serif font-bold text-white mb-2">
+                      <h3 className="text-base font-serif font-bold text-white mb-1">
                         {sample.title}
                       </h3>
-                      <p className="text-xs text-stone-300 leading-relaxed mb-6">
-                        Click the pruning tool to trigger the canvas particle disintegration sequence with directional wind velocity.
+                      <p className="text-[11px] text-stone-300 leading-relaxed mb-4">
+                        Click below to trigger the real-time canvas particle disintegration sequence.
                       </p>
                     </div>
 
                     <button
                       onClick={() => handleDisintegrate(sample)}
-                      className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-2xl bg-white/15 hover:bg-emerald-600 border border-white/20 hover:border-emerald-500 text-white font-semibold text-sm transition-all duration-300 cursor-pointer shadow-lg group hover:scale-[1.02]"
+                      className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/15 hover:bg-emerald-600 border border-white/20 hover:border-emerald-500 text-white font-semibold text-xs transition-all cursor-pointer group"
                     >
-                      <Scissors className="w-4 h-4 text-emerald-300 group-hover:rotate-45 transition-transform" />
+                      <Scissors className="w-3.5 h-3.5 text-emerald-300 group-hover:rotate-45 transition-transform" />
                       <span>Prune & Disintegrate</span>
                     </button>
                   </>
@@ -185,16 +177,13 @@ export default function DisintegrateDemo() {
         </div>
 
         {/* Integration Callout */}
-        <div className="mt-12 p-5 rounded-2xl bg-emerald-900/20 border border-emerald-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-200/90">
-          <div className="flex items-center gap-3 text-left">
-            <Award className="w-6 h-6 text-emerald-400 shrink-0" />
-            <span>
-              <strong>Full Nursery Integration:</strong> This real-time particle disintegration effect is also active in your <strong>Shopping Cart</strong> and <strong>Wishlist</strong> drawers whenever you remove a plant!
+        <div className="mt-8 p-3.5 rounded-xl bg-emerald-900/20 border border-emerald-500/20 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-emerald-200/90">
+          <div className="flex items-center gap-2 text-left">
+            <Award className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span className="text-[11px]">
+              <strong>Note:</strong> This particle disintegration effect is also active in your <strong>Shopping Cart</strong> and <strong>Wishlist</strong> drawers when removing plants!
             </span>
           </div>
-          <span className="shrink-0 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-[11px]">
-            HTML5 Canvas + Physics
-          </span>
         </div>
 
       </div>
