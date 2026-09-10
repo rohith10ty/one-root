@@ -1,6 +1,8 @@
-# 🌿 Verdant Oasis | Modern Nature Nursery & Botanical Plants
+# 🌿 One Root | Modern Nature Nursery & Living Botanicals
 
-A modern, responsive, and visually stunning Nature Nursery & Houseplant Website built with **React**, **Vite**, **Tailwind CSS**, **Lucide Icons**, and custom **HTML5 Canvas Particle Animations** (including a signature **Botanical Particle Disintegration Effect**).
+A modern, responsive, and visually stunning Nature Nursery & Houseplant Website built with **React**, **Vite**, **Tailwind CSS**, **Lucide Icons**, and custom **HTML5 Canvas Particle Animations** (featuring **Real Botanical Falling Leaves** and a signature **Botanical Particle Disintegration Effect**).
+
+- **GitHub Repository**: [https://github.com/rohith10ty/one-root](https://github.com/rohith10ty/one-root)
 
 ---
 
