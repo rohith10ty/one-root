@@ -23,16 +23,16 @@ export default function Reviews() {
   };
 
   return (
-    <section id="reviews" className="py-12 sm:py-16 bg-[#fafaf7] relative overflow-hidden">
+    <section id="reviews" className="py-12 sm:py-16 bg-[#FDE5D4]/25 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-[11px] uppercase font-bold tracking-wider text-emerald-700 bg-emerald-100/80 px-2.5 py-0.5 rounded-full mb-2">
-              <Heart className="w-3 h-3 fill-emerald-600 text-emerald-600" /> Plant Parent Stories
+            <div className="inline-flex items-center gap-1.5 text-[11px] uppercase font-bold tracking-wider text-[#445D48] bg-[#445D48]/15 border border-[#445D48]/20 px-2.5 py-0.5 rounded-full mb-2">
+              <Heart className="w-3 h-3 fill-[#445D48] text-[#445D48]" /> Plant Parent Stories
             </div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-forest-950 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#001524] tracking-tight">
               Loved by Over 45,000 Homes
             </h2>
           </div>
@@ -40,14 +40,14 @@ export default function Reviews() {
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrev}
-              className="w-9 h-9 rounded-full border border-stone-300 bg-white hover:bg-emerald-50 hover:border-emerald-400 text-forest-900 flex items-center justify-center transition-all cursor-pointer shadow-xs"
+              className="w-9 h-9 rounded-full border border-[#D6CC99]/70 bg-white hover:bg-[#FDE5D4] hover:border-[#445D48] text-[#001524] flex items-center justify-center transition-all cursor-pointer shadow-xs"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={handleNext}
-              className="w-9 h-9 rounded-full border border-stone-300 bg-white hover:bg-emerald-50 hover:border-emerald-400 text-forest-900 flex items-center justify-center transition-all cursor-pointer shadow-xs"
+              className="w-9 h-9 rounded-full border border-[#D6CC99]/70 bg-white hover:bg-[#FDE5D4] hover:border-[#445D48] text-[#001524] flex items-center justify-center transition-all cursor-pointer shadow-xs"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-4 h-4" />
@@ -69,8 +69,8 @@ export default function Reviews() {
                 key={review.id}
                 className={`rounded-2xl p-5 border transition-all duration-300 flex flex-col justify-between ${
                   isCurrent
-                    ? 'bg-forest-900 text-white border-forest-800 shadow-lg scale-101'
-                    : 'bg-white text-forest-950 border-stone-200/90 shadow-xs hover:shadow-sm'
+                    ? 'bg-[#001524] text-[#FDE5D4] border-[#D6CC99]/40 shadow-lg scale-101'
+                    : 'bg-white text-[#001524] border-[#D6CC99]/40 shadow-xs hover:shadow-sm'
                 }`}
               >
                 <div>
@@ -80,20 +80,20 @@ export default function Reviews() {
                       {[...Array(review.rating)].map((_, i) => (
                         <Star
                           key={i}
-                          className="w-3.5 h-3.5 fill-amber-400 text-amber-400"
+                          className="w-3.5 h-3.5 fill-[#D6CC99] text-[#D6CC99]"
                         />
                       ))}
                     </div>
                     <Quote
                       className={`w-5 h-5 ${
-                        isCurrent ? 'text-emerald-400/40' : 'text-stone-300'
+                        isCurrent ? 'text-[#D6CC99]/40' : 'text-[#D6CC99]/50'
                       }`}
                     />
                   </div>
 
                   <h3
                     className={`font-serif font-bold text-sm sm:text-base mb-1.5 ${
-                      isCurrent ? 'text-emerald-200' : 'text-forest-950'
+                      isCurrent ? 'text-[#D6CC99]' : 'text-[#001524]'
                     }`}
                   >
                     "{review.title}"
@@ -101,7 +101,7 @@ export default function Reviews() {
 
                   <p
                     className={`text-xs leading-relaxed ${
-                      isCurrent ? 'text-stone-200/90' : 'text-stone-600'
+                      isCurrent ? 'text-[#FDE5D4]/85' : 'text-[#001524]/75'
                     }`}
                   >
                     {review.review}
@@ -111,8 +111,8 @@ export default function Reviews() {
                     <span
                       className={`text-[10.5px] font-medium px-2 py-0.5 rounded-full ${
                         isCurrent
-                          ? 'bg-white/15 text-emerald-300'
-                          : 'bg-emerald-50 text-emerald-800 border border-emerald-100'
+                          ? 'bg-[#445D48]/50 text-[#D6CC99] border border-[#D6CC99]/30'
+                          : 'bg-[#FDE5D4] text-[#001524] border border-[#D6CC99]/50'
                       }`}
                     >
                       🌿 {review.plant}
@@ -123,28 +123,28 @@ export default function Reviews() {
                 {/* Customer Details */}
                 <div
                   className={`mt-4 pt-3 border-t flex items-center gap-2.5 ${
-                    isCurrent ? 'border-white/15' : 'border-stone-100'
+                    isCurrent ? 'border-white/15' : 'border-[#D6CC99]/30'
                   }`}
                 >
                   <img
                     src={review.avatar}
                     alt={review.name}
-                    className="w-8 h-8 rounded-full object-cover ring-1 ring-emerald-500/40"
+                    className="w-8 h-8 rounded-full object-cover ring-1 ring-[#D6CC99]/40"
                   />
                   <div>
                     <div className="flex items-center gap-1">
                       <h4
                         className={`text-xs font-bold ${
-                          isCurrent ? 'text-white' : 'text-forest-950'
+                          isCurrent ? 'text-[#FDE5D4]' : 'text-[#001524]'
                         }`}
                       >
                         {review.name}
                       </h4>
-                      <CheckCircle2 className="w-3 h-3 text-emerald-500" />
+                      <CheckCircle2 className="w-3 h-3 text-[#445D48]" />
                     </div>
                     <p
                       className={`text-[10.5px] ${
-                        isCurrent ? 'text-stone-400' : 'text-stone-500'
+                        isCurrent ? 'text-[#D6CC99]/70' : 'text-[#001524]/60'
                       }`}
                     >
                       {review.location}
@@ -164,7 +164,7 @@ export default function Reviews() {
               key={i}
               onClick={() => setCurrentIndex(i)}
               className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                i === currentIndex ? 'w-6 bg-emerald-600' : 'w-1.5 bg-stone-300 hover:bg-stone-400'
+                i === currentIndex ? 'w-6 bg-[#445D48]' : 'w-1.5 bg-[#D6CC99] hover:bg-[#445D48]'
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />

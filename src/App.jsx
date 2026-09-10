@@ -23,7 +23,7 @@ function NurseryApp() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#fafaf7] text-forest-950 flex flex-col selection:bg-emerald-200 selection:text-emerald-950">
+    <div className="min-h-screen bg-[#FDE5D4]/30 text-[#001524] flex flex-col selection:bg-[#D6CC99] selection:text-[#001524]">
       {/* Navigation */}
       <Navbar />
 

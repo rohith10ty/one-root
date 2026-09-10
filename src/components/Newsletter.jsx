@@ -35,7 +35,7 @@ export default function Newsletter() {
       particleCount: 70,
       spread: 60,
       origin: { y: 0.8 },
-      colors: ['#10b981', '#34d399', '#fef08a', '#84cc16'],
+      colors: ['#445D48', '#D6CC99', '#FDE5D4', '#001524'],
     });
   };
 
@@ -43,39 +43,39 @@ export default function Newsletter() {
     <section className="py-10 sm:py-14 bg-white relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         
-        <div className="relative rounded-3xl overflow-hidden bg-forest-950 text-white p-6 sm:p-10 border border-emerald-500/30 shadow-xl mesh-gradient-dark">
+        <div className="relative rounded-3xl overflow-hidden bg-[#001524] text-[#FDE5D4] p-6 sm:p-10 border border-[#D6CC99]/35 shadow-xl mesh-gradient-dark">
           
           <div className="relative z-10 max-w-2xl mx-auto text-center">
             
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] uppercase font-bold tracking-wider text-emerald-300 bg-emerald-900/80 px-3 py-1 rounded-full mb-4 border border-emerald-500/30 backdrop-blur-xs">
-              <Sparkles className="w-3 h-3 text-emerald-400" /> Botanical Club & Rare Drops
+            <div className="inline-flex items-center gap-1.5 text-[10.5px] uppercase font-bold tracking-wider text-[#D6CC99] bg-[#445D48]/40 px-3 py-1 rounded-full mb-4 border border-[#D6CC99]/30 backdrop-blur-xs">
+              <Sparkles className="w-3 h-3 text-[#D6CC99]" /> Botanical Club & Rare Drops
             </div>
 
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold tracking-tight text-white leading-tight">
-              Grow With Us & Enjoy <span className="text-emerald-400 italic">15% Off</span> Your First Plant
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold tracking-tight text-[#FDE5D4] leading-tight">
+              Grow With Us & Enjoy <span className="text-[#D6CC99] italic">15% Off</span> Your First Plant
             </h2>
 
-            <p className="mt-2.5 text-stone-300 text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
+            <p className="mt-2.5 text-[#D6CC99]/80 text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
               Receive weekly watering alerts, repotting schedules, and early access to rare greenhouse drops.
             </p>
 
             {isSubscribed ? (
-              <div className="mt-6 p-4 rounded-xl bg-emerald-900/60 border border-emerald-400/40 max-w-sm mx-auto text-center">
-                <div className="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-2">
+              <div className="mt-6 p-4 rounded-xl bg-[#445D48]/40 border border-[#D6CC99]/40 max-w-sm mx-auto text-center">
+                <div className="w-8 h-8 rounded-full bg-[#D6CC99]/20 text-[#D6CC99] flex items-center justify-center mx-auto mb-2">
                   <Check className="w-4 h-4" />
                 </div>
-                <h4 className="text-sm font-serif font-bold text-white">
+                <h4 className="text-sm font-serif font-bold text-[#FDE5D4]">
                   You're in the Botanical Circle!
                 </h4>
-                <p className="text-[11px] text-emerald-200 mt-0.5">
-                  Code <strong className="text-white font-mono">PLANTLOVE15</strong> applied.
+                <p className="text-[11px] text-[#D6CC99] mt-0.5">
+                  Code <strong className="text-[#FDE5D4] font-mono">PLANTLOVE15</strong> applied.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="mt-6 max-w-md mx-auto">
-                <div className="flex flex-col sm:flex-row gap-2 p-1 rounded-2xl sm:rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg focus-within:border-emerald-400 transition-colors">
+                <div className="flex flex-col sm:flex-row gap-2 p-1 rounded-2xl sm:rounded-full bg-white/10 backdrop-blur-xl border border-[#D6CC99]/30 shadow-lg focus-within:border-[#D6CC99] transition-colors">
                   <div className="flex items-center gap-2 pl-3 pr-2 py-1.5 flex-1">
-                    <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <Mail className="w-4 h-4 text-[#D6CC99] shrink-0" />
                     <input
                       type="email"
                       placeholder="Enter your email address..."
@@ -84,12 +84,12 @@ export default function Newsletter() {
                         setEmail(e.target.value);
                         if (error) setError('');
                       }}
-                      className="w-full bg-transparent border-none outline-none text-white placeholder-stone-400 text-xs sm:text-sm"
+                      className="w-full bg-transparent border-none outline-none text-[#FDE5D4] placeholder-[#D6CC99]/50 text-xs sm:text-sm"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl sm:rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all cursor-pointer shadow-md shrink-0"
+                    className="flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl sm:rounded-full bg-[#445D48] hover:bg-[#D6CC99] hover:text-[#001524] text-[#FDE5D4] font-semibold text-xs transition-all cursor-pointer shadow-md shrink-0"
                   >
                     <span>Subscribe</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -102,9 +102,9 @@ export default function Newsletter() {
                   </p>
                 )}
 
-                <div className="mt-3 flex items-center justify-center gap-4 text-[10px] text-stone-400">
+                <div className="mt-3 flex items-center justify-center gap-4 text-[10px] text-[#D6CC99]/70">
                   <span className="flex items-center gap-1">
-                    <ShieldCheck className="w-3 h-3 text-emerald-400" /> No spam, ever
+                    <ShieldCheck className="w-3 h-3 text-[#D6CC99]" /> No spam, ever
                   </span>
                   <span>Unsubscribe anytime</span>
                 </div>

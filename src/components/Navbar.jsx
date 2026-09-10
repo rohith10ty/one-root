@@ -60,19 +60,19 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top micro-announcement banner */}
-      <div className="bg-forest-950 text-emerald-100 text-[11px] py-1.5 px-4 border-b border-emerald-900/40 relative z-40">
+      {/* Top micro-announcement banner (001524 bg, D6CC99 & FDE5D4 text) */}
+      <div className="bg-[#001524] text-[#FDE5D4] text-[11px] py-1.5 px-4 border-b border-[#445D48]/40 relative z-40">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-1.5 text-[10.5px] sm:text-[11px]">
-            <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>🌿 <strong>Spring Eco Code:</strong> <code className="bg-emerald-900/80 text-emerald-300 px-1 py-0.5 rounded font-mono text-[10px] font-bold">PLANTLOVE15</code> for 15% OFF</span>
+            <span className="flex h-1.5 w-1.5 rounded-full bg-[#D6CC99] animate-pulse"></span>
+            <span>🌿 <strong>Spring Code:</strong> <code className="bg-[#445D48] text-[#FDE5D4] px-1.5 py-0.5 rounded font-mono text-[10px] font-bold">PLANTLOVE15</code> for 15% OFF</span>
           </div>
-          <div className="hidden md:flex items-center gap-5 text-[10.5px] text-emerald-200/80">
-            <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3 text-emerald-400" /> 30-Day Guarantee</span>
-            <span className="flex items-center gap-1"><Sun className="w-3 h-3 text-amber-400" /> 100% Organic</span>
+          <div className="hidden md:flex items-center gap-5 text-[10.5px] text-[#D6CC99]">
+            <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3 text-[#D6CC99]" /> 30-Day Guarantee</span>
+            <span className="flex items-center gap-1"><Sun className="w-3 h-3 text-[#D6CC99]" /> 100% Organic</span>
             <button 
               onClick={() => setIsContactOpen(true)}
-              className="flex items-center gap-1 text-emerald-300 hover:text-white underline underline-offset-2 transition-colors cursor-pointer"
+              className="flex items-center gap-1 text-[#FDE5D4] hover:text-[#D6CC99] underline underline-offset-2 transition-colors cursor-pointer"
             >
               <Phone className="w-2.5 h-2.5" /> Support
             </button>
@@ -80,12 +80,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main sticky navigation */}
+      {/* Main sticky navigation (FDE5D4 bg with D6CC99 border & 001524 text) */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-stone-200/80 py-2.5'
-            : 'bg-cream-50/90 backdrop-blur-md border-b border-forest-100/50 py-3'
+            ? 'bg-[#FDE5D4]/95 backdrop-blur-xl shadow-sm border-b border-[#D6CC99] py-2.5'
+            : 'bg-[#FDE5D4]/90 backdrop-blur-md border-b border-[#D6CC99]/60 py-3'
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
@@ -99,15 +99,15 @@ export default function Navbar() {
             }}
             className="flex items-center gap-2 group cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-600 to-forest-800 flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-all">
-              <Sprout className="w-4.5 h-4.5 text-emerald-200" />
+            <div className="w-8 h-8 rounded-xl bg-[#445D48] flex items-center justify-center text-[#FDE5D4] shadow-sm group-hover:scale-105 transition-all">
+              <Sprout className="w-4.5 h-4.5 text-[#D6CC99]" />
             </div>
             <div>
-              <span className="text-base sm:text-lg font-serif font-bold text-forest-950 tracking-tight flex items-center gap-1">
-                One<span className="text-emerald-600 font-sans font-light">Root</span>
+              <span className="text-base sm:text-lg font-serif font-bold text-[#001524] tracking-tight flex items-center gap-1">
+                One<span className="text-[#445D48] font-sans font-light">Root</span>
               </span>
-              <span className="hidden sm:block text-[9px] uppercase font-bold tracking-widest text-emerald-700/80 -mt-1">
-                Botanical Nursery
+              <span className="hidden sm:block text-[9px] uppercase font-bold tracking-widest text-[#445D48] -mt-1">
+                Botanical Sanctuary
               </span>
             </div>
           </a>
@@ -122,7 +122,7 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="text-xs font-medium text-forest-900/90 hover:text-emerald-600 transition-colors py-1"
+                className="text-xs font-medium text-[#001524] hover:text-[#445D48] transition-colors py-1"
               >
                 {link.name}
               </a>
@@ -134,7 +134,7 @@ export default function Navbar() {
             {/* Search Trigger */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 rounded-full text-forest-800 hover:text-emerald-600 hover:bg-emerald-50 transition-all cursor-pointer relative group"
+              className="p-2 rounded-full text-[#001524] hover:text-[#445D48] hover:bg-[#D6CC99]/30 transition-all cursor-pointer relative group"
               aria-label="Search plants"
               title="Search plants (Ctrl+K)"
             >
@@ -144,13 +144,13 @@ export default function Navbar() {
             {/* Wishlist Trigger */}
             <button
               onClick={() => setIsWishlistOpen(true)}
-              className="p-2 rounded-full text-forest-800 hover:text-rose-600 hover:bg-rose-50 transition-all cursor-pointer relative group"
+              className="p-2 rounded-full text-[#001524] hover:text-rose-600 hover:bg-rose-50 transition-all cursor-pointer relative group"
               aria-label="View Wishlist"
               title="View saved plants"
             >
               <Heart className={`w-4 h-4 transition-transform ${wishlist.length ? 'fill-rose-500 text-rose-500' : ''}`} />
               {wishlist.length > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 bg-rose-500 text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center ring-2 ring-white">
+                <span className="absolute -top-0.5 -right-0.5 bg-rose-500 text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center ring-2 ring-[#FDE5D4]">
                   {wishlist.length}
                 </span>
               )}
@@ -159,18 +159,18 @@ export default function Navbar() {
             {/* Shopping Cart Trigger */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-1.5 py-1.5 px-3 rounded-full bg-forest-900 hover:bg-forest-800 text-white shadow-sm transition-all cursor-pointer group"
+              className="flex items-center gap-1.5 py-1.5 px-3 rounded-full bg-[#001524] hover:bg-[#445D48] text-[#FDE5D4] shadow-sm transition-all cursor-pointer group"
               aria-label="View Shopping Cart"
             >
               <div className="relative">
-                <ShoppingBag className="w-4 h-4 text-emerald-300" />
+                <ShoppingBag className="w-4 h-4 text-[#D6CC99]" />
                 {cartItemsCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-emerald-500 text-forest-950 text-[9px] font-extrabold rounded-full w-3.5 h-3.5 flex items-center justify-center ring-1 ring-forest-900">
+                  <span className="absolute -top-1.5 -right-1.5 bg-[#D6CC99] text-[#001524] text-[9px] font-extrabold rounded-full w-3.5 h-3.5 flex items-center justify-center ring-1 ring-[#001524]">
                     {cartItemsCount}
                   </span>
                 )}
               </div>
-              <span className="text-xs font-semibold tracking-wide">
+              <span className="text-xs font-semibold tracking-wide text-[#FDE5D4]">
                 Cart
               </span>
             </button>
@@ -178,7 +178,7 @@ export default function Navbar() {
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-1.5 rounded-lg text-forest-900 hover:bg-forest-100 transition-colors cursor-pointer"
+              className="lg:hidden p-1.5 rounded-lg text-[#001524] hover:bg-[#D6CC99]/30 transition-colors cursor-pointer"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -188,16 +188,16 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-[88px] bg-white/95 backdrop-blur-2xl border-b border-emerald-100 shadow-xl p-5 transition-all z-50 max-h-[85vh] overflow-y-auto">
+          <div className="lg:hidden fixed inset-x-0 top-[88px] bg-[#FDE5D4]/98 backdrop-blur-2xl border-b border-[#D6CC99] shadow-xl p-5 transition-all z-50 max-h-[85vh] overflow-y-auto">
             <div className="flex flex-col gap-3">
               <div className="relative">
-                <Search className="w-3.5 h-3.5 text-emerald-600 absolute left-3 top-3" />
+                <Search className="w-3.5 h-3.5 text-[#445D48] absolute left-3 top-3" />
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setIsSearchOpen(true);
                   }}
-                  className="w-full text-left pl-9 pr-3 py-2 bg-forest-50/80 rounded-xl text-xs text-stone-500 border border-emerald-100"
+                  className="w-full text-left pl-9 pr-3 py-2 bg-white/80 rounded-xl text-xs text-[#001524]/70 border border-[#D6CC99]"
                 >
                   Search plant catalog...
                 </button>
@@ -208,21 +208,21 @@ export default function Navbar() {
                   <button
                     key={link.name}
                     onClick={() => handleNavClick(link.href)}
-                    className="flex items-center gap-2 p-2.5 text-left text-xs font-semibold text-forest-900 hover:bg-emerald-50 hover:text-emerald-700 rounded-xl transition-colors cursor-pointer"
+                    className="flex items-center gap-2 p-2.5 text-left text-xs font-semibold text-[#001524] hover:bg-[#D6CC99]/40 hover:text-[#445D48] rounded-xl transition-colors cursor-pointer"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#445D48]"></span>
                     {link.name}
                   </button>
                 ))}
               </div>
 
-              <div className="pt-3 border-t border-stone-100 flex flex-col gap-2">
+              <div className="pt-3 border-t border-[#D6CC99]/50 flex flex-col gap-2">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setIsContactOpen(true);
                   }}
-                  className="w-full py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl text-center text-xs shadow-sm transition-colors"
+                  className="w-full py-2.5 px-3 bg-[#001524] hover:bg-[#445D48] text-[#FDE5D4] font-medium rounded-xl text-center text-xs shadow-sm transition-colors"
                 >
                   Visit Greenhouse & Contact Us
                 </button>

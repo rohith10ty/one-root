@@ -60,48 +60,48 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-forest-950 text-white relative overflow-hidden border-t border-emerald-950">
+    <footer className="bg-[#001524] text-[#FDE5D4] relative overflow-hidden border-t border-[#D6CC99]/20">
       
       {/* Top Value Banner */}
-      <div className="border-b border-emerald-900/40 py-6 sm:py-8 bg-forest-900/40">
+      <div className="border-b border-[#D6CC99]/20 py-6 sm:py-8 bg-[#001524]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center sm:text-left">
           <div className="flex items-center gap-3 justify-center sm:justify-start">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-[#445D48]/35 text-[#D6CC99] flex items-center justify-center shrink-0">
               <ShieldCheck className="w-4.5 h-4.5" />
             </div>
             <div>
-              <h4 className="text-xs font-bold text-white">30-Day Guarantee</h4>
-              <p className="text-[10.5px] text-stone-400">Free replacement</p>
+              <h4 className="text-xs font-bold text-[#FDE5D4]">30-Day Guarantee</h4>
+              <p className="text-[10.5px] text-[#D6CC99]/70">Free replacement</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3 justify-center sm:justify-start">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-[#445D48]/35 text-[#D6CC99] flex items-center justify-center shrink-0">
               <TreePine className="w-4.5 h-4.5" />
             </div>
             <div>
-              <h4 className="text-xs font-bold text-white">Carbon Negative</h4>
-              <p className="text-[10.5px] text-stone-400">1 Tree planted per order</p>
+              <h4 className="text-xs font-bold text-[#FDE5D4]">Carbon Negative</h4>
+              <p className="text-[10.5px] text-[#D6CC99]/70">1 Tree planted per order</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3 justify-center sm:justify-start">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-[#445D48]/35 text-[#D6CC99] flex items-center justify-center shrink-0">
               <Sprout className="w-4.5 h-4.5" />
             </div>
             <div>
-              <h4 className="text-xs font-bold text-white">100% Organically Raised</h4>
-              <p className="text-[10.5px] text-stone-400">Zero toxic sprays</p>
+              <h4 className="text-xs font-bold text-[#FDE5D4]">100% Organically Raised</h4>
+              <p className="text-[10.5px] text-[#D6CC99]/70">Zero toxic sprays</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3 justify-center sm:justify-start">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-[#445D48]/35 text-[#D6CC99] flex items-center justify-center shrink-0">
               <Heart className="w-4.5 h-4.5" />
             </div>
             <div>
-              <h4 className="text-xs font-bold text-white">Lifetime Support</h4>
-              <p className="text-[10.5px] text-stone-400">Chat with botanists</p>
+              <h4 className="text-xs font-bold text-[#FDE5D4]">Lifetime Support</h4>
+              <p className="text-[10.5px] text-[#D6CC99]/70">Chat with botanists</p>
             </div>
           </div>
         </div>
@@ -114,15 +114,15 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-4">
             <a href="#hero" className="flex items-center gap-2 mb-3 group">
-              <div className="w-8 h-8 rounded-xl bg-emerald-600 flex items-center justify-center text-forest-950 font-bold shadow-xs">
-                <Sprout className="w-4.5 h-4.5 text-white" />
+              <div className="w-8 h-8 rounded-xl bg-[#445D48] flex items-center justify-center text-[#FDE5D4] font-bold shadow-xs">
+                <Sprout className="w-4.5 h-4.5 text-[#D6CC99]" />
               </div>
-              <span className="text-lg sm:text-xl font-serif font-bold text-white tracking-tight">
-                One<span className="text-emerald-400 font-sans font-light">Root</span>
+              <span className="text-lg sm:text-xl font-serif font-bold text-[#FDE5D4] tracking-tight">
+                One<span className="text-[#D6CC99] font-sans font-light">Root</span>
               </span>
             </a>
 
-            <p className="text-xs text-stone-400 leading-relaxed max-w-sm mb-4">
+            <p className="text-xs text-[#FDE5D4]/75 leading-relaxed max-w-sm mb-4">
               A certified organic horticultural collective restoring green harmony into homes through living botanicals and zero-plastic care.
             </p>
 
@@ -135,7 +135,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={soc.name}
-                  className="w-7 h-7 rounded-lg bg-white/10 hover:bg-emerald-600 text-stone-300 hover:text-white flex items-center justify-center transition-all cursor-pointer"
+                  className="w-7 h-7 rounded-lg bg-white/10 hover:bg-[#445D48] text-[#D6CC99] hover:text-[#FDE5D4] flex items-center justify-center transition-all cursor-pointer"
                 >
                   {soc.svg}
                 </a>
@@ -145,53 +145,53 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="lg:col-span-2">
-            <h4 className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-3">
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#D6CC99] mb-3">
               Explore
             </h4>
-            <ul className="space-y-1.5 text-xs text-stone-400">
-              <li><a href="#hero" className="hover:text-emerald-300 transition-colors">Home</a></li>
-              <li><a href="#plants-catalog" className="hover:text-emerald-300 transition-colors">Featured Plants</a></li>
-              <li><a href="#categories" className="hover:text-emerald-300 transition-colors">Categories</a></li>
-              <li><a href="#about" className="hover:text-emerald-300 transition-colors">About Nursery</a></li>
-              <li><a href="#why-us" className="hover:text-emerald-300 transition-colors">Why Choose Us</a></li>
-              <li><a href="#care-tips" className="hover:text-emerald-300 transition-colors">Care Guides</a></li>
-              <li><a href="#reviews" className="hover:text-emerald-300 transition-colors">Testimonials</a></li>
+            <ul className="space-y-1.5 text-xs text-[#FDE5D4]/70">
+              <li><a href="#hero" className="hover:text-[#D6CC99] transition-colors">Home</a></li>
+              <li><a href="#plants-catalog" className="hover:text-[#D6CC99] transition-colors">Featured Plants</a></li>
+              <li><a href="#categories" className="hover:text-[#D6CC99] transition-colors">Categories</a></li>
+              <li><a href="#about" className="hover:text-[#D6CC99] transition-colors">About Nursery</a></li>
+              <li><a href="#why-us" className="hover:text-[#D6CC99] transition-colors">Why Choose Us</a></li>
+              <li><a href="#care-tips" className="hover:text-[#D6CC99] transition-colors">Care Guides</a></li>
+              <li><a href="#reviews" className="hover:text-[#D6CC99] transition-colors">Testimonials</a></li>
             </ul>
           </div>
 
           {/* Botanical Collections */}
           <div className="lg:col-span-3">
-            <h4 className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-3">
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#D6CC99] mb-3">
               Categories
             </h4>
-            <ul className="space-y-1.5 text-xs text-stone-400">
+            <ul className="space-y-1.5 text-xs text-[#FDE5D4]/70">
               <li>
-                <button onClick={() => handleCategoryClick('indoor')} className="hover:text-emerald-300 transition-colors cursor-pointer">
+                <button onClick={() => handleCategoryClick('indoor')} className="hover:text-[#D6CC99] transition-colors cursor-pointer">
                   Indoor Houseplants
                 </button>
               </li>
               <li>
-                <button onClick={() => handleCategoryClick('outdoor')} className="hover:text-emerald-300 transition-colors cursor-pointer">
+                <button onClick={() => handleCategoryClick('outdoor')} className="hover:text-[#D6CC99] transition-colors cursor-pointer">
                   Outdoor Garden Botanicals
                 </button>
               </li>
               <li>
-                <button onClick={() => handleCategoryClick('flowering')} className="hover:text-emerald-300 transition-colors cursor-pointer">
+                <button onClick={() => handleCategoryClick('flowering')} className="hover:text-[#D6CC99] transition-colors cursor-pointer">
                   Year-Round Flowering
                 </button>
               </li>
               <li>
-                <button onClick={() => handleCategoryClick('succulents')} className="hover:text-emerald-300 transition-colors cursor-pointer">
+                <button onClick={() => handleCategoryClick('succulents')} className="hover:text-[#D6CC99] transition-colors cursor-pointer">
                   Drought-Hardy Succulents
                 </button>
               </li>
               <li>
-                <button onClick={() => handleCategoryClick('medicinal')} className="hover:text-emerald-300 transition-colors cursor-pointer">
+                <button onClick={() => handleCategoryClick('medicinal')} className="hover:text-[#D6CC99] transition-colors cursor-pointer">
                   Medicinal & Herbal
                 </button>
               </li>
               <li>
-                <button onClick={() => handleCategoryClick('decorative')} className="hover:text-emerald-300 transition-colors cursor-pointer">
+                <button onClick={() => handleCategoryClick('decorative')} className="hover:text-[#D6CC99] transition-colors cursor-pointer">
                   Decorative Statement Foliage
                 </button>
               </li>
@@ -199,30 +199,30 @@ export default function Footer() {
           </div>
 
           {/* Conservatory Contact */}
-          <div className="lg:col-span-3 text-xs text-stone-400 space-y-2">
-            <h4 className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-3">
+          <div className="lg:col-span-3 text-xs text-[#FDE5D4]/75 space-y-2">
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#D6CC99] mb-3">
               Contact
             </h4>
             <p className="flex items-start gap-2">
-              <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+              <MapPin className="w-3.5 h-3.5 text-[#D6CC99] shrink-0 mt-0.5" />
               <span>742 Botanical Way, Portland, OR 97201</span>
             </p>
             <p className="flex items-center gap-2">
-              <Phone className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <Phone className="w-3.5 h-3.5 text-[#D6CC99] shrink-0" />
               <span>+1 (800) 492-7688</span>
             </p>
             <p className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <Mail className="w-3.5 h-3.5 text-[#D6CC99] shrink-0" />
               <span>botanist@onerootnursery.com</span>
             </p>
-            <p className="flex items-start gap-2 pt-0.5 text-stone-400">
-              <Clock className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+            <p className="flex items-start gap-2 pt-0.5 text-[#FDE5D4]/60">
+              <Clock className="w-3.5 h-3.5 text-[#D6CC99] shrink-0 mt-0.5" />
               <span>Tue – Sun: 9:00 AM – 6:30 PM</span>
             </p>
 
             <button
               onClick={() => setIsContactOpen(true)}
-              className="mt-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-emerald-600 text-white text-[11px] font-semibold transition-colors cursor-pointer"
+              className="mt-2 px-3 py-1.5 rounded-lg bg-[#445D48] hover:bg-[#D6CC99] hover:text-[#001524] text-[#FDE5D4] text-[11px] font-semibold transition-colors cursor-pointer"
             >
               Open Contact Desk
             </button>
@@ -231,14 +231,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-10 pt-6 border-t border-emerald-900/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-stone-500">
+        <div className="mt-10 pt-6 border-t border-[#D6CC99]/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#D6CC99]/70">
           <p>© {new Date().getFullYear()} One Root Nursery Inc. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <a href="#hero" className="hover:text-stone-400 transition-colors">Privacy</a>
+            <a href="#hero" className="hover:text-[#D6CC99] transition-colors">Privacy</a>
             <span>•</span>
-            <a href="#hero" className="hover:text-stone-400 transition-colors">Terms</a>
+            <a href="#hero" className="hover:text-[#D6CC99] transition-colors">Terms</a>
             <span>•</span>
-            <span className="text-emerald-400 flex items-center gap-1">
+            <span className="text-[#D6CC99] flex items-center gap-1">
               🌱 Green Powered Servers
             </span>
           </div>
